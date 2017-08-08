@@ -18,6 +18,25 @@
       <h3>总利润：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥</h3><el-input v-model="profits"></el-input>
       </div>
 
+      <div class="middle">
+      <!-- 搜索 -->
+      <div class="search">
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <el-form-item label="单据编号：" prop="jilu_input">
+              <el-input v-model="ruleForm.jilu_input"></el-input>
+            </el-form-item>
+        </el-form>
+      </div>
+
+      <el-button type="primary" icon="search" @click="search" class="btn_search"></el-button>
+      <el-button type="warning" icon="document" @click="getData(),getData2()" class="btn_recovery">恢复数据</el-button>
+
+      <!-- 查看盈利情况 -->
+      <div class="graph">
+         <router-link to="./echart"><el-button type="success" @click="">查看盈利情况</el-button></router-link>
+      </div>
+      </div>
+
 
       <el-tabs type="border-card">
         <el-tab-pane>
@@ -103,53 +122,37 @@
         // 总利润
         profits: '0.00',
 
+
+        ruleForm:{
+          jilu_input: '',
+        },
+
+        rules:{
+            jilu_input: [
+              { required: true, message: '请输入单据编号', trigger: 'blur' },
+              { min: 3, max: 12, message: '长度在 3 到 12 个字符', trigger: 'blur' }
+            ]
+        },
+
         // 入款单表格数据显示
         tableData: [{
-            jilu_date: '2016-05-03',
-            jilu_input: '555',
-            pay_name: '上海',
-            do_name: '普陀区',
-            region: '上海市普陀区金沙江路 1518 弄',
-            jilu_get: 4444
-          }, {
-            jilu_date: '2016-05-02',
-            jilu_input: '999',
-            pay_name: '香港',
-            do_name: '普陀区',
-            region: '上海市普陀区金沙江路 1518 弄',
-            jilu_get: 4444
-          }, {
-            jilu_date: '2016-05-04',
-            jilu_input: '54564',
-            pay_name: '广东',
-            do_name: '普陀区',
-            region: '上海市普陀区金沙江路 1518 弄',
-            jilu_get: 4444
+            jilu_date: '',
+            jilu_input: '',
+            pay_name: '',
+            do_name: '',
+            region: '',
+            jilu_get: 0
           }],
 
 
           // 出款单表格数据显示
           tableData2: [{
-              jilu_date: '2016-05-03',
-              jilu_input: '666',
-              pay_name: '上海',
-              do_name: '普陀区',
-              region: '上海市普陀区金沙江路 1518 弄',
-              jilu_get: 4444
-            }, {
-              jilu_date: '2016-05-02',
-              jilu_input: '66666',
-              pay_name: '香港',
-              do_name: '普陀区',
-              region: '上海市普陀区金沙江路 1518 弄',
-              jilu_get: 4444
-            }, {
-              jilu_date: '2016-05-04',
-              jilu_input: '777777',
-              pay_name: '广东',
-              do_name: '普陀区',
-              region: '上海市普陀区金沙江路 1518 弄',
-              jilu_get: 4444
+              jilu_date: '',
+              jilu_input: '',
+              pay_name: '',
+              do_name: '',
+              region: '',
+              jilu_get: 0
             }],
 
 
@@ -157,6 +160,67 @@
 
 
       };
+    },
+    mounted(){
+      var vm = this;
+      vm.getData();
+      vm.getData2();
+    },
+    methods:{
+      //获取入款单表格数据
+      getData(){
+        this.$http.get('../../static/dataJson/cwData_in.json',{params:{'key':this.jilu_input}}).then(function(response){ 
+          // console.log(response);
+          // console.log('这是我们需要的json数据',response.data.tableList)
+          this.tableData = response.data.tableList;
+        },function(response){
+          alert('请求失败了')
+        })
+      },
+
+      //获取入款单表格数据
+      getData2(){
+        this.$http.get('../../static/dataJson/cwData_out.json',{params:{'key':this.jilu_input}}).then(function(response){ 
+          // console.log(response);
+          // console.log('这是我们需要的json数据',response.data.tableList)
+          this.tableData2 = response.data.tableList2;
+        },function(response){
+          alert('请求失败了')
+        })
+      },
+
+
+      //搜索数据
+      search(){
+        var vm = this;
+
+        for(var i=0; i<vm.tableData.length+1;i++){
+          for(var searchlist of vm.tableData){
+            if(vm.ruleForm.jilu_input != searchlist.jilu_input){
+              // console.log(vm.ruleForm.jilu_input)
+              // console.log(searchlist.jilu_input)
+              var index = vm.tableData.indexOf(searchlist);
+              vm.tableData.splice(index,1);
+              console.log(index);
+            }
+          }
+        }
+
+        for(var i=0; i<vm.tableData2.length+1;i++){
+          for(var searchlist2 of vm.tableData2){
+            if(vm.ruleForm.jilu_input != searchlist2.jilu_input){
+              // console.log(vm.ruleForm.jilu_input)
+              // console.log(searchlist.jilu_input)
+              var index = vm.tableData2.indexOf(searchlist2);
+              vm.tableData2.splice(index,1);
+              console.log(index);
+            }
+          }
+        }
+
+      }
+
+
     }
    }
 </script>
@@ -179,28 +243,56 @@
   }
 
   /*选择日期范围*/
-  .block{
+  .timeprofits .block{
     margin-bottom: 50px;
+    float: left;
   }
 
-  .block .el-button{
+  .timeprofits .block .el-button{
     margin-left: 30px;
   }
 
   /*总利润*/
   .profit{
-    margin-top: 60px;
-    margin-bottom: 150px;
+    /*margin-top: 60px;*/
+    margin-bottom: 86px;
   }
 
   .profit h3{
     float: left;
+    margin-left: 126px;
   }
 
   .profit .el-input{
       width: 26%;
       float: left;
       margin-left: 20px;
+  }
+
+  /*搜索*/
+  .middle{
+    height: 82px;
+  }
+
+  .search{
+    float: left;
+  }
+
+  .btn_search{
+    margin-left: 20px;
+    float: left;
+  }
+
+  .btn_recovery{
+    margin-left: 26px !important;
+    float: left;
+  }
+
+  /*查看盈利情况*/
+  .graph{
+    /*margin-bottom: 42px;*/
+    float: left;
+    margin-left: 160px;
   }
 
 </style>

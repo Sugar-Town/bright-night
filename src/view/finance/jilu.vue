@@ -23,6 +23,7 @@
                       <el-input v-model="ruleForm.input" placeholder="请输入单据编号"></el-input>
                     </div> -->
 
+                  
                     <el-form-item label="单据编号：" prop="jilu_input">
                       <el-input v-model="ruleForm.jilu_input"></el-input>
                     </el-form-item>
@@ -31,7 +32,7 @@
 
                   <!-- 付款单位、经手人等信息 -->
                  
-                  
+                  <div class="jilu_content">
                     <el-form-item label="付款方：" prop="pay_name">
                       <el-input v-model="ruleForm.pay_name"></el-input>
                     </el-form-item>
@@ -46,9 +47,10 @@
                         <el-option label="部门二" value="部门二"></el-option>
                       </el-select>
                     </el-form-item>
+                  </div>
 
-                    <br/><br/><br/><br/>
-                    <div class="jilu_one">
+                    <!-- <br/><br/><br/><br/> -->
+                  <div class="jilu_one">
                     <span class="demonstration">附加说明：</span>
                     <el-input v-model="ruleForm.jilu_add"></el-input>
 
@@ -74,7 +76,7 @@
                     <el-table :data="tableData" border style="width: 100%" max-height="600">
 <!--                        <el-table-column prop="jilu_date" label="录入时间" sortable width="130">
                        </el-table-column> -->
-                       <el-table-column label="录入时间" sortable width="130">
+                       <el-table-column prop="jilu_date" label="录入时间" sortable width="130">
                           <template scope="scope">
                             {{scope.row.jilu_date}}
                           </template>
@@ -199,7 +201,7 @@
                      </el-form-item>
                    </div>
 
-
+                  <div class="jilu_content">
                    <!-- 付款单位、经手人等信息 -->
                      <el-form-item label="支出人：" prop="pay_name">
                        <el-input v-model="paragraphList.pay_name"></el-input>
@@ -215,8 +217,8 @@
                          <el-option label="部门二" value="部门二"></el-option>
                        </el-select>
                      </el-form-item>
+                  </div>
 
-                     <br/><br/><br/><br/>
                      <div class="jilu_one">
                      <span class="demonstration">附加说明：</span>
                      <el-input v-model="paragraphList.jilu_add"></el-input>
@@ -241,7 +243,7 @@
 
                    <div class="jilu_table">
                      <el-table :data="tableData2" border style="width: 100%" max-height="600">
-                        <el-table-column label="录入时间" sortable width="130">
+                        <el-table-column prop="jilu_date" label="录入时间" sortable width="130">
                         <template scope="scope">
                           {{scope.row.jilu_date}}
                         </template>
@@ -674,19 +676,22 @@
           let vm = this;
           //显示弹窗
           vm.dialogFormVisible = true;
-          this.$refs[formName].resetFields();
+          
           // vm.ModalsForm.push(vm.tableData);
           // console.log("弹出表格",vm.ModalsForm);
 
           //记录索引
           this.listIndex=_index;
           //记录数据
-          // this.ModalsForm=row;
-          this.ModalsForm=Object.assign({}, row);
+          this.ModalsForm=row;
+          // this.ModalsForm=JSON.parse(JSON.stringify(row));
+          // this.ModalsForm=Object.assign({}, row);
+          // this.$refs[formName].resetFields();
         },
 
         // 提交修改
         submitEdit(formName) {
+          // var set = this;
           this.$refs[formName].validate((valid) => {
             // console.log("rrrr ",this.ModalsForm);
             // console.log("rrrr ",this.ModalsForm.jilu_input);
@@ -697,8 +702,14 @@
               this.tableData[_index]=this.ModalsForm;
               // this.tableData[_index].jilu_date = this.ModalsForm.jilu_date;
               
-              let vm = this;
-              vm.tableData.push(vm.ModalsForm)
+              // let vm = this;
+              // var index = vm.tableData.indexOf(set.tableData)
+              // vm.tableData.splice(_index,1);
+              // console.log(_index)
+              // vm.tableData.push(vm.ModalsForm)
+
+              // let vm = this;
+              // vm.tableData.push(vm.ModalsForm)
 
 
               // this.dialogFormVisible = false;
@@ -806,15 +817,16 @@
         let vm = this;
         //显示弹窗
         vm.dialogFormVisible2 = true;
-        this.$refs[formName].resetFields();
+        
         // vm.ModalsForm.push(vm.tableData);
         // console.log("弹出表格",vm.ModalsForm);
 
         //记录索引
         this.listIndex=_index;
         //记录数据
-        // this.ModalsForm2=row;
-        this.ModalsForm2=Object.assign({}, row);
+        this.ModalsForm2=row;
+        // this.ModalsForm2=Object.assign({}, row);
+        // this.$refs[formName].resetFields();
       },
 
       // 提交修改
@@ -828,8 +840,8 @@
             //根据索引，赋值到list制定的数
             this.tableData2[_index]=this.ModalsForm2;
 
-            let vm = this;
-            vm.tableData2.push(vm.ModalsForm2);
+            // let vm = this;
+            // vm.tableData2.push(vm.ModalsForm2);
             
             // this.dialogFormVisible = false;
 
@@ -902,7 +914,7 @@
   .jilu .jilu_top{
     width: 100%;
     height: 40px;
-    margin-bottom: 26px;
+    /*margin-bottom: 26px;*/
     /*background-color: red;*/
   }
 
@@ -930,6 +942,13 @@
 
 
   /*付款单位、经手人等信息*/
+  .jilu .jilu_content{
+    width: 100%;
+    height: 40px;
+    margin-top: 46px;
+    margin-bottom: 30px;
+  }
+
   .jilu_news .el-form-item{
     float: left;
   }
