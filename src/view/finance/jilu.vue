@@ -635,12 +635,25 @@
         },
 
 
+        //增添数据
         submitForm(formName) {
           this.$refs[formName].validate((valid) => {
             if (valid) {
               var vm = this;
+              var flag = 0;
               console.log('新增入参：',vm.ruleForm);
 
+              // 判断单据编号是否重复
+              for(var addlist of vm.tableData){
+                if(vm.ruleForm.jilu_input == addlist.jilu_input){
+                  alert("单据编号已存在！请重新输入！")
+                  flag = 1;
+                  return flag;
+                  // break;
+                }
+              }
+              
+              if(flag!=1){
               //这里作演示用，正式新增 请提交到接口
               vm.tableData.push(vm.ruleForm)
               console.log('新增后',vm.tableData)
@@ -649,8 +662,10 @@
 
               alert('提交成功!');
               this.initForm();
+              }
+
             } else {
-              console.log('error submit!!');
+              console.log('提交失败!!');
               return false;
             }
           });
@@ -782,8 +797,20 @@
       this.$refs[formName].validate((valid) => {
         if (valid) {
           var vm = this;
+          var flag = 0;
           console.log('新增入参：',vm.paragraphList);
 
+          // 判断单据编号是否重复
+          for(var addlist2 of vm.tableData2){
+            if(vm.paragraphList.jilu_input == addlist2.jilu_input){
+              alert("单据编号已存在！请重新输入！")
+              flag = 1;
+              return flag;
+              // break;
+            }
+          }
+
+          if(flag!=1){
           //这里作演示用，正式新增 请提交到接口
           vm.tableData2.push(vm.paragraphList)
           console.log('新增后',vm.tableData2)
@@ -792,6 +819,7 @@
 
           alert('提交成功!');
           this.initForm3();
+          }
         } else {
           console.log('error submit!!');
           return false;
@@ -992,7 +1020,7 @@
   }
 
   .Modals .Modals_two .el-input{
-    width: 88%;
+    width: 86%;
     margin-bottom: 27px;
   }
 

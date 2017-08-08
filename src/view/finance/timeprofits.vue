@@ -194,7 +194,7 @@
       search(){
         var vm = this;
 
-        for(var i=0; i<vm.tableData.length+1;i++){
+        for(var i=0; i<vm.tableData.length+2;i++){
           for(var searchlist of vm.tableData){
             if(vm.ruleForm.jilu_input != searchlist.jilu_input){
               // console.log(vm.ruleForm.jilu_input)
