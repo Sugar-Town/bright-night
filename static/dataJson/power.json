@@ -1,0 +1,40 @@
+{
+	"tableData1": [
+	    {
+	        "roleName":"管理员",
+	        "userList":[
+	         { 
+	           "id": "1",
+	           "userName":"老大",
+	           "sex": "男"
+	         }
+	       ]
+	    },
+	    {
+	       "roleName":"普通员工",
+	       "userList":[
+	         { 
+	           "id": "5",
+	           "userName":"小五",
+	           "sex": "男"
+	         },
+	         { 
+	           "id": "6",
+	           "userName":"小六",
+	           "sex": "男"
+	         },
+	         { 
+	           "id": "7",
+	           "userName":"小七",
+	           "sex": "男"
+	         },
+	         { 
+	           "id": "8",
+	           "userName":"小八",
+	           "sex": "男"
+	         }
+	       ]
+	    }
+	    ]
+
+}

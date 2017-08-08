@@ -1,0 +1,324 @@
+<template>
+<div class="housecontainer">
+<div id="table_box">
+<div id="box_header">
+<ul class="ul_left">
+  <li>价格方式：<span>库存成本价</span></li>
+</ul>
+<ul class="ul_right">
+   <li>
+   <el-checkbox-group v-model="checkList" @change="change($event)">
+    <el-checkbox label="显示停用商品"></el-checkbox>
+  </el-checkbox-group>
+  </li>
+  <li>
+    <span>过滤
+     <el-select v-model="type" placeholder="请选择" @change="fil($event)">
+       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" > </el-option>
+    </el-select>
+    </span>
+  </li>
+</ul>
+</div>
+<div class="show_message_box">
+ <div class="show_message">
+  <el-table :data="retableData" border style="width: 100%" :default-sort = "{prop: 'id', order: 'ascending'}">
+    <el-table-column prop="id" label="序号" width="40" sortable></el-table-column>
+
+    <el-table-column label="商品信息" style="text-align:center;color:red;">
+      <el-table-column  prop="No" label="产品编号"  width="95"></el-table-column>
+      <el-table-column prop="name"label="商品名称" width="179"></el-table-column>
+      <el-table-columnprop="size" label="规格" width="95"></el-table-column>
+      <el-table-column prop="version" label="型号" width="95"></el-table-column>
+      <el-table-column prop="manu" label="产地" width="95"></el-table-column>
+      <el-table-column prop="danwei" label="单位" width="95"></el-table-column>
+    </el-table-column>
+
+    <el-table-column label="总仓库">
+      <el-table-column prop="quantity" label="数量" width="95"></el-table-column>
+      <el-table-column prop="money" label="金额"  width="95"></el-table-column>
+    </el-table-column>
+
+    <el-table-column label="库房-北京站">
+      <el-table-column prop="quantity2" label="数量" width="95"></el-table-column>
+      <el-table-column prop="money2" label="金额" width="95"></el-table-column>
+    </el-table-column>
+
+    <el-table-column label="库房-广州站">
+      <el-table-column prop="quantity3" label="数量" width="95"></el-table-column>
+      <el-table-column prop="money3" label="金额" width="95"></el-table-column>
+    </el-table-column>
+
+  </el-table>
+  </div>
+
+<!--   <div id="bottom_message">
+  <el-table :data="tableData1" border style="width: 100%" :show-header="isShow">
+      <el-table-column prop="" width="40"></el-table-column>
+      <el-table-column  prop=""  width="95"></el-table-column>
+      <el-table-column prop="" width="179"></el-table-column>
+      <el-table-columnprop=""  width="95"></el-table-column>
+      <el-table-column prop=""  width="95"></el-table-column>
+      <el-table-column prop=""  width="95"></el-table-column>
+      <el-table-column prop=""  width="95"></el-table-column>
+      <el-table-column prop="quantity" width="95"></el-table-column>
+      <el-table-column prop="money"   width="95"></el-table-column>
+      <el-table-column prop="quantity2"  width="95"></el-table-column>
+      <el-table-column prop="money2"  width="95"></el-table-column>
+      <el-table-column prop="quantity3" width="95"></el-table-column>
+      <el-table-column prop="money3" width="95"></el-table-column>
+  </el-table>
+  </div>
+ -->
+  <div class="rem"> 共<i>{{leng}}</i>条记录</div>
+
+</div>
+</div>
+
+<div class="tab-btn">
+      <div class="bt-f">
+        <ul><li><button class="button-li">查询条件</button></li>
+          <li><button class="button-li">明细账本</button></li>
+          <li><button class="button-li">价格方式</button></li>
+        </ul>
+      </div>
+      <div class="bt-rg">
+         <ul>
+          <li><button>打印</button></li>
+          <li><button>退出</button></li>
+         </ul>
+      </div>
+</div>
+</div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        type:'',
+        isShow:false,
+        checkList: [],
+        retableData: null,
+        options:null,
+        leng:null,
+        showList:[{
+          "id": "",
+          "No": "",
+          "name": "",
+          "size": "",
+          "version": "",
+          "manu":"",
+          "danwei":"",
+          "quantity":"",
+          "money":null,
+          "quantity2":"",
+          "money2":"",
+          "quantity3":"",
+          "money3":""
+        }],
+        newArray:[
+        {
+          "id": "",
+          "No": "",
+          "name": "",
+          "size": "",
+          "version": "",
+          "manu":"",
+          "danwei":"",
+          "quantity":"",
+          "money":null,
+          "quantity2":"",
+          "money2":"",
+          "quantity3":"",
+          "money3":""
+        }
+        ],
+        numArray:[]
+      }
+    },
+    mounted() {
+    var vm = this;
+    vm.getData();
+
+    setTimeout(function(){
+      for(var i=0;i<vm.retableData.length+1;i++){
+       for(var r of vm.retableData){
+          if (r.isUsed===false) {
+            vm.showList.push(r)
+            vm.retableData.splice(vm.retableData.indexOf(r),1)
+          }
+        }
+      }
+      console.log('showList',vm.showList);
+      vm.leng=vm.retableData.length;
+    },30)
+    
+
+  },
+  methods: {
+  getData (){
+        //Vue.http 一定要在当前vue文件导入Vue的模块
+        //this.$http 则不用导入vue
+          this.$http.get('../../../static/dataJson/kfData.json', { params: { 'key':this.inputValue}}).then(function (response){
+            console.log(response)
+            console.log('这是我们需要的json数据', response.data.retableData)
+            this.retableData = response.data.retableData;
+            var len=response.data.retableData.length;
+            this.options= response.data.options;
+          }, function(response){
+            alert('请求失败了')
+          })
+        },
+    fil(type){//选择
+      var vm=this;
+      if(type==='选项1'){
+          for(var arr of vm.newArray)
+            if(arr.money!=null)
+              vm.retableData.push(arr);
+        // alert('not null') 
+        console.log('retableData',vm.retableData) 
+        console.log('newArray',vm.newArray) 
+         vm.retableData=vm.retableData;   
+      }
+      else{
+        vm.newArray=[
+        {
+          "id": "",
+          "No": "",
+          "name": "",
+          "size": "",
+          "version": "",
+          "manu":"",
+          "danwei":"",
+          "quantity":null,
+          "money":null,
+          "quantity2":null,
+          "money2":null,
+          "quantity3":null,
+          "money3":null
+        }]
+      for(var i=0;i<vm.retableData.length+1;i++){
+         for (var re of vm.retableData){
+            if(re.money2==0&&re.quantity2==0&&re.money3==0&&re.quantity3==0){
+               for(var arr of vm.newArray){
+                  if(re.money2!=arr.money2&&re.quantity2!=arr.quantity2&&re.money3!=arr.money3&&re.quantity3!=arr.quantity3)
+                vm.newArray.push(re);         
+         } 
+            var index=vm.retableData.indexOf(re);
+            vm.retableData.splice(index,1);
+          } 
+        }
+      }
+       console.log('当前newArray的id',vm.newArray);
+
+      }
+      this.leng=vm.retableData.length;
+    }
+    ,
+    change(type){
+      var vm=this;
+       vm.showList=JSON.parse(JSON.stringify(vm.showList));
+      console.log('函数里面的',vm.showList);
+      if(type[0]==="显示停用商品"&&type.length==1){
+      // alert('这是显示停用商品');
+      for(var s of vm.showList){
+        if(s.id!="")  
+      vm.retableData.push(s)
+  }
+    }
+    if(type.length==0){
+       for(var i=0;i<vm.retableData.length+1;i++){
+       for(var r of vm.retableData){
+          if (r.isUsed===false) 
+            vm.retableData.splice(vm.retableData.indexOf(r),1)
+        }
+      }
+    }
+    console.log("type",type)
+    this.leng=vm.retableData.length;
+    //   else
+        // alert(type);
+    }
+
+  }
+  }
+</script>
+
+<style>
+.housecontainer{
+/*  width: 1000px;*/
+  /*position: absolute;*/
+  overflow: hidden;
+  padding-bottom: 20px;
+  margin-top: 80px;
+  float: left;
+}
+#table_box{
+    padding: 20px 24px;
+    overflow: hidden;
+}
+.housecontainer .show_message_box{
+    border: 1px solid #ddd;
+    /*width: 100%;*/
+    overflow: hidden;
+}
+.show_message{
+    height:700px;
+}
+.show_message .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: white; 
+    background-clip: padding-box; 
+}
+.show_message .el-table tr { 
+    background: #f6fcff;
+}
+li{
+  list-style: none;
+
+}
+#box_header{
+  line-height: 40px;
+}
+.ul_left{
+    display: inline-block;
+    /*padding-bottom: 10px;*/
+}
+.ul_right{
+  float: right;
+  /* padding-bottom: 10px;*/
+}
+.ul_right li{
+    display: inline-block;
+  }
+.ul_right li .el-checkbox {
+    padding-right: 30px;
+}
+.ul_right .el-input__icon {
+    right: 0px;
+}
+.housecontainer .el-input__inner {
+  height: 30px;
+}
+.rem{
+    height: 40px;
+    line-height: 40px;
+    /*float: right;*/
+    text-align: right;
+    padding-right: 65px;
+}
+.tab-btn {
+    /*margin: 8px;*/
+     padding:0 24px;
+}
+.bt-f {
+    float: left;
+}
+.bt-rg {
+    float: right;
+}
+.tab-btn li {
+    float: left;
+    margin: 0 8px;
+}
+</style>

@@ -1,0 +1,27 @@
+{
+    "data": {
+        "goodList": [
+            {
+                "id": 100001,
+                "title": "商品1",
+                "url": "",
+                "sku": "100kg",
+                "unit": "袋",
+                "unitPrice": 10.00,
+                "quantity": 10,
+                "total": 100
+            },
+            {
+                "id": 100002,
+                "title": "商品2",
+                "url": "",
+                "status": 1,
+                "sku": "一箱",
+                "unit": "箱",
+                "unitPrice": 100.00,
+                "quantity": 20,
+                "total": 2000
+            }
+         ]
+    }
+}

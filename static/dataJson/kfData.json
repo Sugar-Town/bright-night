@@ -1,0 +1,243 @@
+{
+	"retableData":[
+	{
+          "id": 1,
+          "No": "a710032",
+          "name": "a五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":110,
+          "money":9600,
+          "quantity2":10,
+          "money2":5,
+          "quantity3":4,
+          "money3":3,
+          "isUsed":true,
+          "isShowStHouse":false
+        },
+        {
+          "id": 2,
+          "No": "b712123",
+          "name": "b五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":90,
+          "money":9600,
+          "quantity2":0,
+          "money2":0,
+          "quantity3":0,
+          "money3":0,
+          "isUsed":true,
+          "isShowStHouse":false
+        },
+        {
+          "id": 3,
+          "No": "c674323",
+          "name": "c五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":180,
+          "money":7800,
+          "quantity2":20,
+          "money2":50,
+          "quantity3":90,
+          "money3":0,
+          "isUsed":false,
+          "isShowStHouse":false
+        },
+        {
+          "id": 4,
+          "No": "d724123",
+          "name": "d五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":170,
+          "money":1900,
+          "quantity2":0,
+          "money2":0,
+          "quantity3":0,
+          "money3":0,
+          "isUsed":false,
+          "isShowStHouse":false
+        },
+        {
+          "id": 5,
+          "No": "e832413",
+          "name": "e五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":140,
+          "money":1900,
+          "quantity2":0,
+          "money2":0,
+          "quantity3":0,
+          "money3":0,
+          "isUsed":true,
+          "isShowStHouse":false
+        },
+        {
+          "id": 6,
+          "No": "e832413",
+          "name": "e五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":160,
+          "money":1900,
+          "quantity2":120,
+          "money2":10,
+          "quantity3":20,
+          "money3":200,
+          "isUsed":true,
+          "isShowStHouse":false
+        },
+        {
+          "id": 7,
+          "No": "e832413",
+          "name": "e五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":190,
+          "money":2100,
+          "quantity2":50,
+          "money2":70,
+          "quantity3":100,
+          "money3":90,
+          "isUsed":true,
+          "isShowStHouse":false
+        },
+        {
+          "id": 8,
+          "No": "e732413",
+          "name": "e五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":180,
+          "money":1700,
+          "quantity2":150,
+          "money2":30,
+          "quantity3":50,
+          "money3":40,
+          "isUsed":true,
+          "isShowStHouse":false
+        },
+        {
+          "id": 9,
+          "No": "e732413",
+          "name": "e五位荧光开光",
+          "size": "20*11",
+          "version": "w12265d",
+          "manu":"中国",
+          "danwei":"个",
+          "quantity":180,
+          "money":1700,
+          "quantity2":180,
+          "money2":30,
+          "quantity3":90,
+          "money3":40,
+          "isUsed":true,
+          "isShowStHouse":false
+        }
+
+
+     ],
+     "options":[{
+          "value": "选项1",
+          "label": "显示全部"
+        }, {
+          "value": "选项2",
+          "label": "不显示各仓库数量和金额都为0"
+        }
+        ],
+        "IntableData": [
+        {
+          "number": 2,
+          "ID": 25,
+          "spbh": 458622,
+          "name": "景观灯",
+          "dw": "首耀照明",
+          "ck":"只",
+          "quantity":2564,
+          "money":9600,
+          "rkdj":"52元",
+          "rkje":"7595245元",
+          "bz":"无"
+        },
+        {
+          "number": 7,
+          "ID": 21,
+          "spbh": 497622,
+          "name": "景观灯",
+          "dw": "首耀照明",
+          "ck":"只",
+          "quantity":2564,
+          "money":9600,
+          "rkdj":"52元",
+          "rkje":"7595245元",
+          "bz":"无"
+        },
+        {
+          "number": 8,
+          "ID": 24,
+          "spbh": 497622,
+          "name": "景观灯",
+          "dw": "首耀照明",
+          "ck":"只",
+          "quantity":2564,
+          "money":9600,
+          "rkdj":"52元",
+          "rkje":"7595245元",
+          "bz":"无"
+        }
+
+        ],
+        "OuttableData":[
+        {
+          "number":"",
+          "PaymentID":"001",
+          "AccountName":"",
+          "ways":"",
+          "money":"",
+          "note":""
+        },
+        {
+          "number":"",
+          "PaymentID":"002",
+          "AccountName":"张三",
+          "ways":"现金",
+          "money":"30000",
+          "note":""
+        },
+        {
+          "number":"",
+          "PaymentID":"003",
+          "AccountName":"李四",
+          "ways":"信用卡",
+          "money":"20000",
+          "note":""
+        },
+        {
+          "number":"",
+          "PaymentID":"004",
+          "AccountName":"",
+          "ways":"",
+          "money":"",
+          "note":""
+        }
+        ]
+}

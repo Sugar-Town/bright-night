@@ -1,0 +1,53 @@
+{
+	"desc": "OK",
+	"status": 1000,
+	"data": {
+		"wendu": "19",
+		"ganmao": "昼夜温差较大，较易发生感冒，请适当增减衣服。体质较弱的朋友请注意防护。",
+		"forecast": [
+			{
+				"fengxiang": "南偏东",
+				"fengli": "微风级",
+				"high": "高温 20℃",
+				"type": "多云",
+				"low": "低温 14℃",
+				"date": "27日星期一",
+				"img": "img/cloudy.png"
+			}, {
+				"fengxiang": "无持续风向",
+				"fengli": "微风级",
+				"high": "高温 31℃",
+				"type": "晴转多云",
+				"low": "低温 12℃",
+				"date": "28日星期二",
+				"img": "img/cloudy_s_sunny.png"
+			}, {
+				"fengxiang": "无持续风向",
+				"fengli": "3-4级",
+				"high": "高温 21℃",
+				"type": "多云转阵雨",
+				"low": "低温 12℃",
+				"date": "1日星期三",
+				"img": "img/rain_t_cloudy.png"
+			}, {
+				"fengxiang": "北风",
+				"fengli": "3-4级",
+				"high": "高温 21℃",
+				"type": "晴",
+				"low": "低温 10℃",
+				"date": "2日星期四",
+				"img": "img/cloudy_s_sunny.png"
+			}, {
+				"fengxiang": "无持续风向",
+				"fengli": "微风级",
+				"high": "高温 24℃",
+				"type": "阵雨",
+				"low": "低温 13℃",
+				"date": "3日星期五",
+				"img": "img/cloudy_s_rain.png"
+			}
+		],
+		"aqi": "63",
+		"city": "广州"
+	}
+}

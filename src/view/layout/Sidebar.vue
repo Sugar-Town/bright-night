@@ -1,0 +1,68 @@
+<template>
+        <el-col>
+          <el-menu default-active="2" class="menu-demo">
+            <router-link to="/index/readme">
+                <el-menu-item index="/index/readme" class="home">
+                    <i class="fa fa-home" aria-hidden="true" style="font-size: 19px;"></i>&nbsp;&nbsp; 首页
+                </el-menu-item>
+            </router-link>
+            <el-submenu index="1">
+              <template slot="title"><i class="el-icon-menu"></i>库房管理<i class="el-submenu__icon-arrow el-icon-caret-bottom"></i></template>
+                <router-link to="/house/instock"><el-menu-item index="1-1">入库单</el-menu-item></router-link>
+                <router-link to="/house/outstock"><el-menu-item index="1-2">出库单</el-menu-item></router-link>
+                <router-link to="/house/allocation"><el-menu-item index="1-3">库存分配</el-menu-item></router-link>
+                <router-link to="/house/remaining"><el-menu-item index="1-4">库存余额</el-menu-item></router-link>
+            </el-submenu>
+            <el-submenu index="2">
+              <template slot="title"><i class="el-icon-menu"></i>产品管理<i class="el-submenu__icon-arrow el-icon-caret-bottom"></i></template>
+                <router-link to="/product/kucun"><el-menu-item index="2-1">产品库存</el-menu-item></router-link>
+                <router-link to="/product/chengben"><el-menu-item index="2-2">产品成本</el-menu-item></router-link>
+                <router-link to="/product/shuxing"><el-menu-item index="2-3">产品属性管理</el-menu-item></router-link>
+                <router-link to="/product/productList"><el-menu-item index="2-4">产品列表</el-menu-item></router-link>
+            </el-submenu>
+            <el-submenu index="3">
+              <template slot="title"><i class="el-icon-menu"></i>订单管理<i class="el-submenu__icon-arrow el-icon-caret-bottom"></i></template>
+                 <router-link to="/order/index"><el-menu-item index="3-1">订单报表</el-menu-item></router-link>
+                <router-link to="/order/orderAccount"><el-menu-item index="3-1">所有订单</el-menu-item></router-link>
+                <router-link to="/order/orderColleague"><el-menu-item index="3-2">所属员工</el-menu-item></router-link>
+                <!-- <router-link to="/user/userInfo"><el-menu-item index="3-3">订单成本</el-menu-item></router-link>
+                <router-link to="/user/userInfo"><el-menu-item index="3-4">订单成本费用</el-menu-item></router-link>
+                <router-link to="/user/userInfo"><el-menu-item index="3-5">订单总支付金额</el-menu-item></router-link>
+                <router-link to="/user/userInfo"><el-menu-item index="3-6">订单商品</el-menu-item></router-link> -->
+                <router-link to="/order/dayThree"><el-menu-item index="3-7">dayThree</el-menu-item></router-link>
+            </el-submenu>
+            <el-submenu index="4">
+              <template slot="title"><i class="el-icon-menu"></i>财务管理<i class="el-submenu__icon-arrow el-icon-caret-bottom"></i></template>
+                <router-link to="/finance/jilu"><el-menu-item index="4-1">记录出款和入款</el-menu-item></router-link>
+                <router-link to="/finance/timeProfits"><el-menu-item index="4-2">计算一段时间的利润</el-menu-item></router-link>
+            </el-submenu>
+            <el-submenu index="5">
+              <template slot="title"><i class="el-icon-menu"></i>客户管理<i class="el-submenu__icon-arrow el-icon-caret-bottom"></i></template>
+                <router-link to="/customer/customerInfo"><el-menu-item index="5-1">客户基本信息</el-menu-item></router-link>
+                <router-link to="/customer/customer-vip"><el-menu-item index="5-2">客户销售</el-menu-item></router-link>
+                <router-link to="/customer/customerOder"><el-menu-item index="5-3">客户订单管理</el-menu-item></router-link>
+                <router-link to="/customer/customerTranfer"><el-menu-item index="5-4">客户关系管理</el-menu-item></router-link>
+            </el-submenu>
+            <el-submenu index="6">
+              <template slot="title"><i class="el-icon-menu"></i>员工管理<i class="el-submenu__icon-arrow el-icon-caret-bottom"></i></template>
+                <router-link to="/user/userInfo"><el-menu-item index="6-1">员工基本信息</el-menu-item></router-link>
+                <router-link to="/user/power"><el-menu-item index="6-2">员工权限</el-menu-item></router-link>
+                <router-link to="/user/newUser"><el-menu-item index="6-3">入职新员工</el-menu-item></router-link>
+                <router-link to="/user/sale"><el-menu-item index="6-4">员工销售额管理</el-menu-item></router-link>
+            </el-submenu>
+          </el-menu>
+        </el-col>
+</template>
+
+<script>
+    export default {
+      data() {
+        return {
+          levelList: null
+        }
+      },
+    }
+</script>
+
+<style>
+</style>

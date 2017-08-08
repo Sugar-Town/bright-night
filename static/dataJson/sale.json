@@ -1,0 +1,27 @@
+{
+    "tableData": [{
+        "date": "2016-05-02",
+        "saleMan": "王小虎",
+        "goods":"商品A",
+        "saleQuantity": 300,
+        "saleAmount":1504.6
+      }, {
+        "date": "2016-05-04",
+        "saleMan": "林大虎",
+        "goods": "商品C",
+        "saleQuantity": 395,
+        "saleAmount":2620.3
+      }, {
+        "date": "2016-05-01",
+        "saleMan": "刘一虎",
+        "goods": "商品B",
+        "saleQuantity": 410,
+        "saleAmount":4904.5
+      }, {
+        "date": "2016-05-03",
+        "saleMan": "李三虎",
+        "goods": "商品D",
+        "saleQuantity": 500,
+        "saleAmount":6521.9
+    }]
+}

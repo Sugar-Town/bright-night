@@ -1,0 +1,236 @@
+{
+  "resultCode": "0",
+  "resultMsg": "",
+  "data": {
+    "currPage": 2,
+    "total": 88,
+    "pageSize": 10,
+    "collectionMoney": 10,
+    "productList": [
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+       "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "2"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "2"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "2"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "2"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "2"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "1"
+            
+      },
+      {
+        "id": 100001,
+        "title": "景观灯",
+        "auditor": "莜莜",
+        "sku": "1",
+        "unit": "个",
+        "marketPrice": 10,
+        "costPrice": 12,
+        "stock": 32,
+        "auditor": "莜莜",
+        "createTime": "2017-08-18 12:12:12",
+        "modifyTime": "2017-07-17 12:12:12",
+        "status": "2"
+            
+      }
+    ]
+  }
+}

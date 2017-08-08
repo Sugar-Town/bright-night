@@ -1,0 +1,36 @@
+pcdList: [
+  {
+    "value": 100001,
+    "label": "浙江省",
+    "children": [
+      {
+        "value": 110001,
+        "label": "杭州市",
+        "children": [
+          {
+            "value": 111001,
+            "label": "西湖区"
+          },
+          {
+            "value": 111002,
+            "label": "上城区"
+          }
+        ]
+      },
+      {
+        "value": 120001,
+        "label": "嘉兴市",
+        "children": [
+          {
+            "value": 121001,
+            "label": "南湖区"
+          },
+          {
+            "value": 121002,
+            "label": "秀洲区"
+          }
+        ]
+      }
+    ]
+  }
+],

@@ -1,0 +1,93 @@
+{
+  "resultCode": "0",
+  "resultMsg": "",
+  "data": {
+    "currPage": 2,
+    "total": 88,
+    "pageSize": 10,
+    "collectionMoney": 10,
+    "data": [
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 1
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 2
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 3
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 4
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 5
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 1
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 2
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 2
+      },
+      {
+        "colleagueId": "1234567",
+        "orderId": "1100000",
+        "colleagueName": "家要",
+        "orderDay": "2017-8-1",
+        "money": "33.9",
+        "auditor": "莜莜",
+        "orderStatus": 3
+      }
+    ]
+  }
+}
