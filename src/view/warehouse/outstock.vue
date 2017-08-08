@@ -246,7 +246,7 @@
 /*  float: left;*/
 width: 1200px;
 /*background: red;*/
-margin-top: 80px;
+/*margin-top: 80px;*/
 /*position: absolute;
 width: 100%;*/
 overflow: hidden;
@@ -281,7 +281,7 @@ margin-right: -60px;
   padding-left: 20px;
       border-bottom: none;
 }
- .outbox .layoutgr .el-form-item {
+ .outbox .gys-list .layoutgr .el-form-item {
   float: left;
   padding-right: 80px;
   padding-bottom: 5px;

@@ -184,7 +184,7 @@
       },
       methods: {
       getData () {
-        this.$http.get('../../static/dataJson/kfData.json', {params: {'key': this.inputValue}}).then(function (response) {
+        this.$http.get('../../static/dataJson/kfData.json').then(function (response) {
           console.log(response)
           console.log('这是我们需要的json数据', response.data.IntableData)
           this.IntableList = response.data.IntableData;
@@ -220,6 +220,7 @@
           }        
         this.dialogCreatVisible = false;
       },
+      //编辑提交
       handleEditSubmit(){
         var vm = this;
         for(var intablelist of vm.IntableList){
@@ -245,12 +246,10 @@
 <style>
 
 .inContainer{
-  float: left;
+float: left;
 width: 1200px;
-/*background: red;*/
-margin-top: 80px;
+/*margin-top: 80px;*/
 position: relative;
-/*width: 100%;*/
 overflow: hidden;
 }
 .inbox{
@@ -266,11 +265,11 @@ overflow: hidden;
     padding-right: 25px;
     display: block;
 }
-.el-form-item {
+.inbox .el-form-item {
   float: left;
   padding-right: 8px;
 }
-.el-form-item .el-form-item__content {
+.inbox .el-form-item .el-form-item__content {
   float: left;
 }
 .header-rg .el-input__inner {
@@ -282,7 +281,7 @@ overflow: hidden;
 }
 .inbox .gys-list .layoutgr .el-form-item {
   float: left;
-  padding-right: 0px;
+  padding-right: 40px;
   padding-bottom: 5px;
   margin-bottom: 0; 
 }
@@ -290,6 +289,9 @@ overflow: hidden;
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
     overflow: hidden;
+}
+.inbox .gys-list .layoutgr .el-form-item__label {
+    width: inherit;
 }
 .layoutgr .el-input__inner {
   height: 30px;

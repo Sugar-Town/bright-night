@@ -21,4 +21,7 @@
   a {
     text-decoration: none;
   }
+  .el-breadcrumb{
+    margin: 20px;
+  }
 </style>

@@ -1,5 +1,11 @@
 <template>
   <div class="userInfo">
+    <!-- 面包屑
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item :to="{ path: '/' }">产品管理</el-breadcrumb-item>
+      <el-breadcrumb-item>产品库存</el-breadcrumb-item>
+    </el-breadcrumb> -->
+
     <div class="one">
       <el-button  type="success"><i class="fa fa-plus-circle" aria-hidden="true"></i>  添加</el-button>
       <el-button  type="info"><i class="fa fa-pencil" aria-hidden="true"></i>  修改</el-button>

@@ -1,0 +1,134 @@
+{
+  "data":[
+      {
+      "name": "总仓库1",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"台式电灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"50",
+      "amount":"100",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库2",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"手电筒",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"10",
+      "amount":"200",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库3",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"天花板吊灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"500",
+      "amount":"50",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"指示灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"80",
+      "amount":"100",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"灯泡",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"5",
+      "amount":"1000",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"灯管",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"15",
+      "amount":"300",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"灯塔",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"700",
+      "amount":"10",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"霓虹灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"50",
+      "amount":"200",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"油灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"50",
+      "amount":"10",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"霓虹灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"50",
+      "amount":"100",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"霓虹灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"50",
+      "amount":"100",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"霓虹灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"50",
+      "amount":"100",
+      "work":"操作"
+    },
+    {
+      "name": "总仓库",
+      "address": "河北省石家庄长安区裕华路44号",
+      "detail":"霓虹灯",
+      "manager":"张三三",
+      "start":"2017-8-1",
+      "price":"50",
+      "amount":"100",
+      "work":"操作"
+    }
+  ]
+}

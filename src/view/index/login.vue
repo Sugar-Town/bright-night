@@ -1,0 +1,139 @@
+<template>
+<div class="customerVip">
+<div class="log">
+<!-- 客户VIP登录管理 -->
+  <div class="loginImg">
+    <img src="" style="width: 406px;height:364px;">
+  </div>
+  <div class="login" style="margin-top: 36px;">
+    <span style="color:#2894FF;font-size: 28px;padding-left: 116px;">登录</span>
+    <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+      <el-form-item label="账号" prop="name">
+      <i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 26px;"></i>
+        <el-input type="text" v-model="ruleForm2.name" auto-complete="off" style="width: 81%;margin-bottom: 12px;"></el-input>
+      </el-form-item>
+      <el-form-item label="密码" prop="pass">
+      <i aria-hidden="true" class="fa fa-lock" style="font-size: 30px;margin-right: 4px;"></i>
+        <el-input type="password" v-model="ruleForm2.pass" auto-complete="off" style="width: 81%;margin-bottom: 12px;">
+        </el-input>
+      </el-form-item>
+      
+      <div class="sub">
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('ruleForm2')">登录</el-button>
+          <el-button @click="resetForm('ruleForm2')" style="margin-left: 66px;">退出</el-button>
+        </el-form-item>
+      </div>
+    </el-form>    
+  </div>
+</div>
+
+</div>
+</template>
+<script>
+ 
+
+ export default {
+      data () {
+        var validateName = (rule, value, callback) => {
+           if (value === '') {
+            callback(new Error('请输入账号'));
+          }
+          if (value !== '123') {
+                callback(new Error('帐号不存在！'));
+           }
+          else {
+            if (this.ruleForm2.pass !== '') {
+              this.$refs.ruleForm2.validateField('pass');
+            }
+            callback();
+          }
+        };
+        var validatePass = (rule, value, callback) => {
+          if (value === '') {
+            callback(new Error('请输入密码'));
+          } else if (value !== '123') {
+            callback(new Error('密码错误!'));
+          } else {
+            callback();
+          }
+        };
+        const validatePass1 = (rule, value, callback) => {
+            if (value.length < 6) {
+              callback(new Error('密码不能小于6位'));
+            } else {
+              callback();
+            }
+          };
+            return {
+             ruleForm2: {
+            name: '',
+            pass: ''
+          },
+          rules2: {
+            name: [
+              { validator: validateName, trigger: 'blur' }
+            ],
+            pass: [
+              { required: true, trigger: 'blur', validator: validatePass1 },
+              { validator: validatePass, trigger: 'blur' }
+            ]
+          }
+        };
+    },
+    methods: {
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
+    }
+  }
+</script>
+
+<style>
+  .customerVip{
+    position: absolute;
+  }
+  .log{
+    background: #D0E9FF;
+    width:900px;
+    height: 364px;
+    margin: 124px 160px;
+  }
+  .loginImg{
+    float: left;
+  }
+  .login{
+    float: left;
+  }
+  .login .el-form-item__content {
+    margin-left: 156px;
+  }
+  .login.el-input,.el-input__inner {
+    width: 121%;
+  }
+  .login .el-form{
+    margin-top: 43px;
+  }
+  .sub .el-form-item{
+    margin-top: 28px;
+  }
+  .login .el-form-item__label {
+    padding: 8px 12px 11px 0;
+  }
+  .login .el-form-item__error{
+    margin-left: 29px;
+  }
+  .login .el-form-item.is-required .el-form-item__label:before {
+    content: '';
+  }
+</style>

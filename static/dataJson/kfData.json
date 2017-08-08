@@ -1,5 +1,5 @@
 {
-	"retableData":[
+	"altableData":[
 	{
           "id": 1,
           "No": "a710032",
@@ -239,5 +239,101 @@
           "money":"",
           "note":""
         }
-        ]
+        ],
+        "retableData1": [{
+          "id": "12987122",
+          "metropolis": "北京",
+          "amount1": 234,
+          "amount2": 370,
+          "amount3": 430
+        }, {
+          "id": 12987123,
+          "metropolis": "上海",
+          "amount1": 165,
+          "amount2": 400,
+          "amount3": 560
+        }, {
+          "id": 12987124,
+          "metropolis": "天津",
+          "amount1": 324,
+          "amount2": 64,
+          "amount3": 350
+        }, {
+          "id": 12987125,
+          "metropolis": "美国",
+          "amount1": 621,
+          "amount2": 200,
+          "amount3": 170
+        }, {
+          "id": 12987126,
+          "metropolis": "湖南",
+          "amount1": 539,
+          "amount2": 320,
+          "amount3": 15
+        }],
+        "retableData2": [{
+          "id": "12987122",
+          "metropolis": "广州",
+          "amount1": 234,
+          "amount2": 46,
+          "amount3": 10
+        }, {
+          "id": 12987123,
+          "metropolis": "加拿大",
+          "amount1": 165,
+          "amount2": 380,
+          "amount3": 120
+        }, {
+          "id": 12987124,
+          "metropolis": "天津",
+          "amount1": 324,
+          "amount2": 83,
+          "amount3": 9
+        }, {
+          "id": 12987125,
+          "metropolis": "东莞",
+          "amount1": 621,
+          "amount2": 79,
+          "amount3": 17
+        }, {
+          "id": 12987126,
+          "metropolis": "深圳",
+          "amount1": 539,
+          "amount2": 56,
+          "amount3": 15
+        }],
+        "retableData3": [{
+          "id": "12987122",
+          "metropolis": "佛山",
+          "amount1": 234,
+          "amount2": 375,
+          "amount3": 210
+        }, {
+          "id": 12987123,
+          "metropolis": "海南",
+          "amount1": 30,
+          "amount2": 49,
+          "amount3": 250
+        }, {
+          "id": 12987124,
+          "metropolis": "湖北",
+          "amount1": 389,
+          "amount2": 198,
+          "amount3": 450
+        }, {
+          "id": 12987125,
+          "metropolis": "美国",
+          "amount1": 621,
+          "amount2": 87,
+          "amount3": 143
+        }, {
+          "id": 12987126,
+          "metropolis": "湖南",
+          "amount1": 539,
+          "amount2": 56,
+          "amount3": 143
+        }]
+
+
+
 }

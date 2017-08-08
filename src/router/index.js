@@ -10,6 +10,7 @@ Vue.use(VueResource)
 Vue.use(VueWaves)
 
 import Readme from '@/view/index/readme'
+import Login from '@/view/index/login'
 
 import User from '@/view/user/a-user'
 import UserInfo from '@/view/user/userInfo'
@@ -34,6 +35,7 @@ import ProductList from '@/view/product/productList'
 import Finance from '@/view/finance/a-finance'
 import Jilu from '@/view/finance/jilu'
 import TimeProfits from '@/view/finance/timeProfits'
+import F_Echarts from '@/view/finance/echart'
 
 import Customer from '@/view/customer/a-customer'
 import CustomerVip from '@/view/customer/customerVip'
@@ -51,6 +53,11 @@ import DayThree from '@/view/order/dayThree'
 
 export default new Router({
   routes: [
+    { 
+      path: '/index/login', 
+      component: Login, 
+      name: '登录' 
+    },
     {
       path: '/',
       redirect: '/index/readme',
@@ -85,8 +92,8 @@ export default new Router({
       path: '/product', 
       component: Product,
       children: [
-        { path: 'chengben', component: Chengben, name: '产品库存'  },
-        { path: 'kucun', component: Kucun, name: '产品成本'  },
+        { path: 'chengben', component: Chengben, name: '产品成本'  },
+        { path: 'kucun', component: Kucun, name: '产品库存'  },
         { path: 'shuxing', component: Shuxing, name: '产品属性管理'  },
         { path: 'kucun-chakan', component: KucunChakan, name: '库存查看' },
         { path: 'productList', component: ProductList, name: '产品列表' }
@@ -97,7 +104,8 @@ export default new Router({
       component: Finance,
       children: [
         { path: 'jilu', component: Jilu, name: '记录出款可入款'  },
-        { path: 'timeProfits', component: TimeProfits, name: '计算一段时间的利润'  }
+        { path: 'timeProfits', component: TimeProfits, name: '计算一段时间的利润' },
+        { path: 'echart', component: F_Echarts, name: '查看盈利情况'  }
       ]
     },
     { 

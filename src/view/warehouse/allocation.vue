@@ -22,7 +22,7 @@
 </div>
 <div class="show_message_box">
  <div class="show_message">
-  <el-table :data="retableData" border style="width: 100%" :default-sort = "{prop: 'id', order: 'ascending'}">
+  <el-table :data="altableData" border style="width: 100%" :default-sort = "{prop: 'id', order: 'ascending'}">
     <el-table-column prop="id" label="序号" width="40" sortable></el-table-column>
 
     <el-table-column label="商品信息" style="text-align:center;color:red;">
@@ -98,8 +98,8 @@
       return {
         type:'',
         isShow:false,
-        checkList: [],
-        retableData: null,
+        checkList: ['显示停用商品'],
+        altableData: null,
         options:null,
         leng:null,
         showList:[{
@@ -142,44 +142,40 @@
     vm.getData();
 
     setTimeout(function(){
-      for(var i=0;i<vm.retableData.length+1;i++){
-       for(var r of vm.retableData){
-          if (r.isUsed===false) {
-            vm.showList.push(r)
-            vm.retableData.splice(vm.retableData.indexOf(r),1)
+      vm.showList=JSON.parse(JSON.stringify(vm.showList));
+       for(var a of vm.altableData){
+          if (a.isUsed===false) {
+            vm.showList.push(a)
           }
         }
-      }
       console.log('showList',vm.showList);
-      vm.leng=vm.retableData.length;
+      vm.leng=vm.altableData.length;
     },30)
     
 
   },
   methods: {
   getData (){
-        //Vue.http 一定要在当前vue文件导入Vue的模块
-        //this.$http 则不用导入vue
-          this.$http.get('../../../static/dataJson/kfData.json', { params: { 'key':this.inputValue}}).then(function (response){
+          this.$http.get('../../../static/dataJson/kfData.json').then(function (response){
             console.log(response)
-            console.log('这是我们需要的json数据', response.data.retableData)
-            this.retableData = response.data.retableData;
-            var len=response.data.retableData.length;
+            console.log('这是我们需要的json数据', response.data.altableData)
+            this.altableData = response.data.altableData;
+            var len=response.data.altableData.length;
             this.options= response.data.options;
           }, function(response){
             alert('请求失败了')
           })
         },
-    fil(type){//选择
+    fil(type){ //选择是否显示全部
       var vm=this;
       if(type==='选项1'){
           for(var arr of vm.newArray)
             if(arr.money!=null)
-              vm.retableData.push(arr);
+              vm.altableData.push(arr);
         // alert('not null') 
-        console.log('retableData',vm.retableData) 
+        console.log('altableData',vm.altableData) 
         console.log('newArray',vm.newArray) 
-         vm.retableData=vm.retableData;   
+         vm.altableData=vm.altableData;   
       }
       else{
         vm.newArray=[
@@ -198,45 +194,45 @@
           "quantity3":null,
           "money3":null
         }]
-      for(var i=0;i<vm.retableData.length+1;i++){
-         for (var re of vm.retableData){
+      for(var i=0;i<vm.altableData.length+1;i++){
+         for (var re of vm.altableData){
             if(re.money2==0&&re.quantity2==0&&re.money3==0&&re.quantity3==0){
                for(var arr of vm.newArray){
                   if(re.money2!=arr.money2&&re.quantity2!=arr.quantity2&&re.money3!=arr.money3&&re.quantity3!=arr.quantity3)
                 vm.newArray.push(re);         
          } 
-            var index=vm.retableData.indexOf(re);
-            vm.retableData.splice(index,1);
+            var index=vm.altableData.indexOf(re);
+            vm.altableData.splice(index,1);
           } 
         }
       }
        console.log('当前newArray的id',vm.newArray);
 
       }
-      this.leng=vm.retableData.length;
+      this.leng=vm.altableData.length;
     }
     ,
-    change(type){
+    change(type){  //是否显示停用商品
       var vm=this;
        vm.showList=JSON.parse(JSON.stringify(vm.showList));
-      console.log('函数里面的',vm.showList);
+         console.log('函数里面的',vm.showList);
       if(type[0]==="显示停用商品"&&type.length==1){
       // alert('这是显示停用商品');
       for(var s of vm.showList){
         if(s.id!="")  
-      vm.retableData.push(s)
+      vm.altableData.push(s)
   }
     }
     if(type.length==0){
-       for(var i=0;i<vm.retableData.length+1;i++){
-       for(var r of vm.retableData){
+       for(var i=0;i<vm.altableData.length+1;i++){
+       for(var r of vm.altableData){
           if (r.isUsed===false) 
-            vm.retableData.splice(vm.retableData.indexOf(r),1)
+            vm.altableData.splice(vm.altableData.indexOf(r),1)
         }
       }
     }
     console.log("type",type)
-    this.leng=vm.retableData.length;
+    this.leng=vm.altableData.length;
     //   else
         // alert(type);
     }
@@ -251,7 +247,7 @@
   /*position: absolute;*/
   overflow: hidden;
   padding-bottom: 20px;
-  margin-top: 80px;
+  /*margin-top: 80px;*/
   float: left;
 }
 #table_box{
@@ -272,6 +268,9 @@
 }
 .show_message .el-table tr { 
     background: #f6fcff;
+}
+.show_message .el-table th>.cell {
+    text-align: center;
 }
 li{
   list-style: none;
