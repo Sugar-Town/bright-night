@@ -132,7 +132,7 @@
 	        var vm = this;
 	        console.log('编辑的row：',index,'-----',row);
 	        //跳页面进行查看
-	        this.$router.push( { path: '/order/editOrder', query: { id: row.orderId } } ); //带参跳转
+	        this.$router.push( { path: '/index/order/editOrder', query: { id: row.orderId } } ); //带参跳转
         },
         //单个删除
         handleDelete(index,row){

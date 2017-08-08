@@ -52,7 +52,7 @@
         var validatePass = (rule, value, callback) => {
           if (value === '') {
             callback(new Error('请输入密码'));
-          } else if (value !== '123') {
+          } else if (value !== '123123') {
             callback(new Error('密码错误!'));
           } else {
             callback();
@@ -85,7 +85,7 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.$router.push('/index/readme');
           } else {
             console.log('error submit!!');
             return false;

@@ -219,7 +219,7 @@
         console.log('编辑的row：',index,'-----',row);
         //跳页面进行修改
         //this.$router.push('/example/form'); 
-        this.$router.push( { path: '/order/editOrder', query: { id: row.orderId } } ); //带参跳转
+        this.$router.push( { path: '/index/order/editOrder', query: { id: row.orderId } } ); //带参跳转
       },
       //单个删除
       handleDelete(index,row){
@@ -237,7 +237,7 @@
       handleSendAll() {
         var vm = this;
         console.log('批量发货选择的row：',vm.multipleSelection);
-        this.$router.push('/order/editOrder' ); //带参跳转
+        this.$router.push('/index/order/editOrder' ); //带参跳转
       },
       //搜索
       handleFilter() {

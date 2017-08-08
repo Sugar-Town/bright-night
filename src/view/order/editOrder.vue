@@ -239,7 +239,7 @@
         var vm = this;
         console.log(vm.sendGoodsInfo);
         if(vm.sendGoodsInfo.sendTime !== '' && vm.sendGoodsInfo.logisticsCompany !== '' && vm.sendGoodsInfo.logisticsNum !== ''){
-          this.$router.push( { path: '/order/showSendInfo', query: { sendGoodsInfo: vm.sendGoodsInfo } } );
+          this.$router.push( { path: '/index/order/showSendInfo', query: { sendGoodsInfo: vm.sendGoodsInfo } } );
         }else{
           showSendGoodsPopover = true;
         };
