@@ -20,7 +20,7 @@
         <el-form-item label="">
           <el-input v-model="formInline.user" placeholder="请输入员工编号名称/联系人/电话查询"></el-input>
         </el-form-item>
-        <el-button type="primary" v-waves icon="search" @click="onSubmit">查询</el-button>
+        <el-button type="primary" v-waves icon="search" @click="handleSearch">查询</el-button>
         <el-button type="primary" v-waves icon="edit" @click="handleCreate">新增</el-button>
         <el-button type="primary" v-waves icon="edit" @click="handleDelAll">批量删除</el-button>
         <el-button type="primary" v-waves icon="document" @click="handleDownload">导出</el-button>
@@ -203,8 +203,22 @@
             alert("请求失败了")
           })
          },
-         onSubmit() {
-           console.log('submit!');
+         handleSearch() {
+           // console.log('submit!');
+           var vm = this;
+           // for(var i = 0; i < vm.tableData3.length+1; i++){
+
+               for(var item of vm.tableData3){
+                   // console.log(item)
+                   if(vm.formInline.user != item.id){
+                      var index = vm.tableData3.indexOf(item);
+                      console.log(index)
+                      vm.tableData3.splice(index,1);//把index和id不相等的记录删除，删位置index
+
+                    }
+               }
+           // }
+
          },
          //重置新增表单form
          initForm(){
@@ -271,23 +285,37 @@
          //批量删除
          handleDelAll(){
             let vm = this;
-            console.log("批量删除的index：",this.delIndex);//未定义
+            console.log("批量删除的index：",this.delIndex);
             console.log("批量删除的row：",vm.multipleSelection);
             //实际开发，不需要使用splice，我们只需要对 vm.multipleSelection 进行for循环，然后拿到每一条id，拼接成一个数组传给接口即可，例如[1,3,5]
             for(var i = 0; i < vm.multipleSelection.length; i++){
               console.log(vm.multipleSelection[i]);//循环遍历出数组中的每一条对象
               // console.log(vm.multipleSelection[i].id);
-              this.tableData3.splice(vm.multipleSelection[i].delIndex,1);//
-              // var ids = vm.multipleSelection.map(vm.multipleSelection[i].id).join()
+              // this.tableData3.splice(vm.multipleSelection[i].id,1);//
+              var ids = this.multipleSelection.map(item => item.id).join()
               //获取所有选中行的id组成的字符串，以逗号分隔  
-              // console.log(ids)
-
             }
-
+            console.log("获取到所有选中的id，组成新的数组是：",ids);
 
             //未实现（下面为有dug代码）
             // this.tableData3.splice(vm.multipleSelection,vm.multipleSelection.length);
             // console.log("删除的条数：",vm.multipleSelection.length);
+
+
+            // 未实现
+            // let arr = [];
+            // var len = vm.multipleSelection.length;
+            // console.log(vm.multipleSelection.indexOf(i));//-1
+            // for (var i = 0; i < len; i++) {
+            //   if (vm.multipleSelection.indexOf(i)>=0) {
+            //     console.log(vm.multipleSelection.indexOf(i))
+            //   }else{
+            //     arr.push(vm.multipleSelection[i])
+            //   }
+            // }
+            // vm.multipleSelection = arr;
+            // this.multipleSelection = [];                                                                                                 
+
          },
          //表头的导出
          handleDownload(){
