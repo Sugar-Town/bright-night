@@ -1,12 +1,12 @@
 <template>
 <div class="customerVip">
 <div class="log">
-<!-- 客户VIP登录管理 -->
+<!-- 登录管理 -->
   <div class="loginImg">
-    <img src="" style="width: 406px;height:364px;">
+    <img src="./../../assets/login.jpg" style="width: 406px;height:364px;">
   </div>
   <div class="login" style="margin-top: 36px;">
-    <span style="color:#2894FF;font-size: 28px;padding-left: 116px;">登录</span>
+    <span style="color:#2894FF;font-size: 28px; padding-left: 190px;">登录</span>
     <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
       <el-form-item label="账号" prop="name">
       <i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 26px;"></i>
@@ -14,8 +14,9 @@
       </el-form-item>
       <el-form-item label="密码" prop="pass">
       <i aria-hidden="true" class="fa fa-lock" style="font-size: 30px;margin-right: 4px;"></i>
-        <el-input type="password" v-model="ruleForm2.pass" auto-complete="off" style="width: 81%;margin-bottom: 12px;">
+        <el-input type="password" v-model="ruleForm2.pass" @keyup.enter.native="submitForm('ruleForm2')"  auto-complete="off" style="width: 81%;">
         </el-input>
+        <p style="color:#2894FF; padding-left: 40px; font-size: 12px">测试账号：123/123123</p>
       </el-form-item>
       
       <div class="sub">
@@ -24,6 +25,7 @@
           <el-button @click="resetForm('ruleForm2')" style="margin-left: 66px;">退出</el-button>
         </el-form-item>
       </div>
+
     </el-form>    
   </div>
 </div>
