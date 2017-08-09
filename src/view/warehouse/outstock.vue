@@ -184,6 +184,7 @@ import Vue from 'vue'
       handleDelete(){
       this.dialogDeleteVisible = true;
       },
+      //新增提交
       handleCreateSubmit(){
         var vm = this;         
          var flag=0;   
@@ -204,23 +205,23 @@ import Vue from 'vue'
           }        
         this.dialogCreatVisible = false;
       },
+       //编辑提交
       handleEditSubmit(){
         var vm = this;          
         var flag=0;
         for(var outtablelist of vm.OuttableList){
           if(vm.temp.PaymentID==outtablelist.PaymentID){
-            // vm.IntableList.push(vm.temp);
             var index=vm.OuttableList.indexOf(outtablelist)
             console.log("当前索引号",index);
             Vue.set(vm.OuttableList,index,vm.temp);
             vm.temp=JSON.parse(JSON.stringify(vm.temp));
-            flag++;
-            // alert("ID has exit")       
+            flag++;    
           }
         }
         if (flag==0) {alert("这个收款账户编号不存在，请重新输入")};
         this.dialogEditVisible = false;
       },
+      //删除提交
       handleDeleteSubmit(){
         var vm = this;
         for(var outtablelist of vm.OuttableList){
@@ -297,6 +298,9 @@ margin-right: -60px;
  .outbox .layoutgr {
     margin-bottom: 20px;
     overflow: hidden;
+}
+.outbox .el-input__icon {
+    right: 70px;
 }
  .outbox .layoutgr .main .el-input__inner{
 width: 420px
