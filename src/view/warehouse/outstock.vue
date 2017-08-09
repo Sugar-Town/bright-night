@@ -141,6 +141,7 @@
  </div>
 </template>
 <script>
+import Vue from 'vue'
   export default {
       data () {
           return {
@@ -204,17 +205,16 @@
         this.dialogCreatVisible = false;
       },
       handleEditSubmit(){
-        var vm = this;
+        var vm = this;          
+        var flag=0;
         for(var outtablelist of vm.OuttableList){
-          var flag=0;
           if(vm.temp.PaymentID==outtablelist.PaymentID){
             // vm.IntableList.push(vm.temp);
             var index=vm.OuttableList.indexOf(outtablelist)
             console.log("当前索引号",index);
-            vm.OuttableList.splice(index,1)
-            vm.OuttableList.push(vm.temp);
+            Vue.set(vm.OuttableList,index,vm.temp);
             vm.temp=JSON.parse(JSON.stringify(vm.temp));
-            flag=1;
+            flag++;
             // alert("ID has exit")       
           }
         }
