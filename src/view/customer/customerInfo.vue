@@ -102,7 +102,7 @@
       <el-table-column
         prop="level"
         label="客户等级"
-        width="95">
+        width="75">
       </el-table-column>
       <el-table-column
         prop="id"
@@ -122,7 +122,7 @@
       <el-table-column
         prop="name"
         label="联系人"
-        width="100" show-overflow-tooltip>
+        width="95" show-overflow-tooltip>
       </el-table-column>
       <el-table-column
         prop="phone"
@@ -137,7 +137,7 @@
       <el-table-column
         prop="money"
         label="应收款余额"
-        width="120">
+        width="100">
       </el-table-column>
       <el-table-column
         prop="address"
@@ -354,16 +354,10 @@
     text-decoration: none;
   }
   /*客户管理*/
-  .el-breadcrumb__item {
-    background: #4dc2e6;
-    margin-right: 5px;
-    width: 100px;
-    text-align: right;
-    padding-right: 6px;   
-  } 
  .customerInfo{
     position: absolute;
     /*background:#FEF5E7;*/
+    width: 1176px;
   }
   .el-breadcrumb{
     height: 58px;

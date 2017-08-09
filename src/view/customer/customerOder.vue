@@ -2,10 +2,18 @@
   <div class="customerOrder">
   <div class="cum_header">
     <span style="font-size: 20px;">处理订单</span>
-    <div class="Csearch">
-      <el-input v-model="input" placeholder="请输入内容"></el-input>
-      <el-button type="primary">搜索</el-button>
-    </div>
+    <span class="Csearch">
+      <!-- <el-input v-model="formInline.cum" placeholder="请输入要查询的编号"></el-input> -->
+   <!--    <el-button type="primary" @click="handleSearch">搜索</el-button> -->
+      <el-form :inline="true" :model="formInline" class="demo-form-inline">
+        <el-form-item label="">
+          <el-input v-model="formInline.cum" placeholder="请输入要查询的编号"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="handleSearch">搜索</el-button>
+        </el-form-item>
+      </el-form>
+    </span>
   </div>
 <!-- 订单表格 -->
   <el-table
@@ -13,6 +21,11 @@
     <el-table-column
       type="selection"
       width="55">
+    </el-table-column>
+    <el-table-column
+      prop="id"
+      label="编号"
+      width="70">     
     </el-table-column>
     <el-table-column
       prop="name"
@@ -67,7 +80,10 @@
   <el-button style="background:#dfe6ec;" @click="handleCreate">添加订单</el-button>
   <!-- 新增功能 -->
     <el-dialog title="填写订单信息" :visible.sync="dialogFormVisible"> 
-              <el-form :model="form">           
+              <el-form :model="form">
+                <el-form-item label="编号" :label-width="formLabelWidth">
+                  <el-input v-model="form.id" auto-complete="off"></el-input>
+                </el-form-item>           
                 <el-form-item label="姓名" :label-width="formLabelWidth">
                   <el-input v-model="form.name" auto-complete="off"></el-input>
                 </el-form-item>
@@ -93,12 +109,15 @@
               </el-form>
         <div slot="footer" class="dialog-footer">
            <el-button @click="dialogFormVisible = false">取 消</el-button>
-           <el-button type="primary" @click="handleCreateSubmit()">确 定</el-button> 
+           <el-button type="primary" @click="handleCreateSubmit">确 定</el-button> 
       </div>
   </el-dialog>
   <!-- 编辑功能 -->
    <el-dialog title="填写订单信息" :visible.sync="dialogFormVisible"> 
-              <el-form :model="editForm">           
+              <el-form :model="editForm">
+                <el-form-item label="编号" :label-width="formLabelWidth">
+                  <el-input v-model="editForm.id" auto-complete="off"></el-input>
+                </el-form-item>           
                 <el-form-item label="姓名" :label-width="formLabelWidth">
                   <el-input v-model="editForm.name" auto-complete="off"></el-input>
                 </el-form-item>
@@ -139,9 +158,13 @@
             input: '',
             tableData3: [],
             multipleSelection: [],
+            formInline:{
+              cum: ''
+            },
      
        dialogFormVisible: false,
-       form: {             
+       form: {  
+              id:'',           
               name: '',
               phone:'',
               number:'',
@@ -152,7 +175,8 @@
               operate:'' ,
               delivery: false,           
             },
-        editForm: {             
+        editForm: {  
+              id:'',           
               name: '',
               phone:'',
               number:'',
@@ -184,7 +208,21 @@
               vm.tableData3 = response.data.tableData3;
             })
           },
-        
+          
+              //通过编号查询
+             handleSearch(){
+              console.log("1111")
+                var vm = this ;
+                for(var i = 0;i < vm.tableData3.length+1;i++){//二次筛选
+                   for(var item of vm.tableData3){//一次筛选
+                      if(vm.formInline.cum != item.id){
+                        var index = vm.tableData3.indexOf(item);
+                        console.log(index)
+                        vm.tableData3.splice(index,1);//把index和id不相等的记录删除，删位置index
+                      }
+                    }
+                }
+            },
           //不用json导入
           // toggleSelection(rows) {
           //   if (rows) {
@@ -206,6 +244,7 @@
             initForm(){
               let vm = this;
               vm.form = {
+                id:'',
                 name: '',
                 phone:'',
                 number:'',
@@ -231,11 +270,12 @@
               console.log('新增后的信息数据:',vm.tableData3);
               this.dialogFormVisible = false;
               // 提交后弹出成功提示语
-              this.$message({
-                showClose: true,
-                message: '提交成功！',
-                type: 'success'
-              });
+              // this.$message({
+              //   showClose: true,
+              //   message: '提交成功！',
+              //   type: 'success'
+              // });
+             
             },
             // 编辑功能
             handleEdit(index, row) {
@@ -262,6 +302,8 @@
             dateChange(val) {
               this.form.date=val;
             }
+            
+           
 
 
         }
@@ -271,6 +313,7 @@
 <style>
   .customerOrder{
     position: absolute;
+    width: 1178px;
   }
   .cum_header{
     font-size: 20px;
@@ -280,14 +323,10 @@
     padding: 9px 25px;
   }
   .Csearch{
-    float: right;
+    display: inline-block;
     margin-left: 674px;
   }
-  .Csearch .el-button--primary{
-    float: right;
-    margin: -36px 12px;
-  }
-  .Csearch.el-input,.el-input__inner {
+  .Csearch.el-input,.Csearch .el-input__inner {
     width: 258px;
   }
   .el-date-editor.el-input {
