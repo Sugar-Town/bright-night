@@ -1,12 +1,12 @@
 <template>
   <div class="power">
      <!-- 面包屑导航 -->
-     <div class="bre-crumb">
+     <!-- <div class="bre-crumb">
         <el-breadcrumb separator="/">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
           <el-breadcrumb-item>员工权限</el-breadcrumb-item>  
         </el-breadcrumb>
-     </div>
+     </div> -->
 
      <!-- 新增角色 -->
      <div class="newRole">

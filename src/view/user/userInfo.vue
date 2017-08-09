@@ -1,12 +1,12 @@
 <template>
   <div class="userInfo">
     <!-- 面包屑导航 -->
-     <div class="bre-crumb">
+    <!--  <div class="bre-crumb">
         <el-breadcrumb separator="/">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
           <el-breadcrumb-item>员工基本信息</el-breadcrumb-item>  
         </el-breadcrumb>
-     </div>
+     </div> -->
     <!-- 表头 -->
     <div class="info-top">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
