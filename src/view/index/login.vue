@@ -120,7 +120,7 @@
   .login .el-form-item__content {
     margin-left: 156px;
   }
-  .login.el-input,.el-input__inner {
+  .login.el-input,.login .el-input__inner {
     width: 121%;
   }
   .login .el-form{
