@@ -72,7 +72,7 @@
               </el-table-column>
               <el-table-column prop="region" label="部门" width="200">
               </el-table-column>
-              <el-table-column prop="jilu_get" label="收取金额（¥）" width="200">
+              <el-table-column prop="jilu_charge" label="收取金额（¥）" width="200">
               </el-table-column>
             </el-table>
         </el-tab-pane>
@@ -152,7 +152,7 @@
               pay_name: '',
               do_name: '',
               region: '',
-              jilu_get: 0
+              jilu_charge: 0
             }],
 
 

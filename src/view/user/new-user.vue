@@ -1,12 +1,12 @@
 <template>
   <div class="new-user">
     <!-- 面包屑导航 -->
-    <div class="bre-crumb">
+   <!--  <div class="bre-crumb">
        <el-breadcrumb separator="/">
          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
          <el-breadcrumb-item>入职新员工</el-breadcrumb-item>  
        </el-breadcrumb>
-    </div>
+    </div> -->
 
     <!-- 验证表单 -->
     <div class="ruleForm">
