@@ -213,7 +213,6 @@ import Vue from 'vue'
           console.log("退出if后flag",flag)
           if(flag==vm.IntableList.length){
           vm.IntableList.push(vm.temp);
-          // vm.IntableList=vm.IntableList;
           vm.temp=JSON.parse(JSON.stringify(vm.temp));
           }
           else{
@@ -227,15 +226,11 @@ import Vue from 'vue'
         var flag=0;
         for(var intablelist of vm.IntableList){
           if(vm.temp.ID==intablelist.ID){
-            // vm.IntableList.push(vm.temp);
             var index=vm.IntableList.indexOf(intablelist)
             console.log("当前索引号",index);
-            // vm.IntableList.splice(index,1)
-            // vm.IntableList.push(vm.temp);
             Vue.set(vm.IntableList,index,vm.temp);
             vm.temp=JSON.parse(JSON.stringify(vm.temp));
-            flag++;
-            // alert("ID has exit")       
+            flag++;    
           }
         }
         if (flag==0) {alert("这个ID不存在，请重新输入")};
