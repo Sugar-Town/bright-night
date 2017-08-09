@@ -79,7 +79,7 @@
 
   <el-button style="background:#dfe6ec;" @click="handleCreate">添加订单</el-button>
   <!-- 新增功能 -->
-    <el-dialog title="填写订单信息" :visible.sync="dialogFormVisible"> 
+    <el-dialog title="填写订单信息" :visible.sync="dialogeditFormVisible"> 
               <el-form :model="form">
                 <el-form-item label="编号" :label-width="formLabelWidth">
                   <el-input v-model="form.id" auto-complete="off"></el-input>
@@ -109,7 +109,7 @@
               </el-form>
         <div slot="footer" class="dialog-footer">
            <el-button @click="dialogFormVisible = false">取 消</el-button>
-           <el-button type="primary" @click="handleCreateSubmit">确 定</el-button> 
+           <el-button type="primary" @click="handleCreateOrder">确 定</el-button> 
       </div>
   </el-dialog>
   <!-- 编辑功能 -->
@@ -163,6 +163,7 @@
             },
      
        dialogFormVisible: false,
+       dialogeditFormVisible: false,
        form: {  
               id:'',           
               name: '',
@@ -209,20 +210,20 @@
             })
           },
           
-              //通过编号查询
-             handleSearch(){
-              console.log("1111")
-                var vm = this ;
-                for(var i = 0;i < vm.tableData3.length+1;i++){//二次筛选
-                   for(var item of vm.tableData3){//一次筛选
-                      if(vm.formInline.cum != item.id){
-                        var index = vm.tableData3.indexOf(item);
-                        console.log(index)
-                        vm.tableData3.splice(index,1);//把index和id不相等的记录删除，删位置index
-                      }
-                    }
+          //通过编号查询
+          handleSearch(){
+          console.log("1111")
+            var vm = this ;
+            for(var i = 0;i < vm.tableData3.length+1;i++){//二次筛选
+               for(var item of vm.tableData3){//一次筛选
+                  if(vm.formInline.cum != item.id){
+                    var index = vm.tableData3.indexOf(item);
+                    console.log(index)
+                    vm.tableData3.splice(index,1);//把index和id不相等的记录删除，删位置index
+                  }
                 }
-            },
+            }
+          },
           //不用json导入
           // toggleSelection(rows) {
           //   if (rows) {
@@ -237,75 +238,67 @@
           //   this.multipleSelection = val;
           // },
            // 删除单条
-           handdeleteRow(index, rows) {
+          handdeleteRow(index, rows) {
             rows.splice(index, 1);
           },
-           //重置添加订单表单
-            initForm(){
-              let vm = this;
-              vm.form = {
-                id:'',
-                name: '',
-                phone:'',
-                number:'',
-                total:'',
-                payS_shipS:'',
-                status:'',
-                date: '',
-                operate:'' ,
-                delivery: false,        
-              }
-            },
-            // 添加订单按钮
-            handleCreate(){
-            //每次新增时，重置新增表单数据，避免双向绑定影响
-              this.initForm();
-              this.dialogFormVisible = true;
-            },
-            //（添加订单）新增功能
-            handleCreateSubmit(){
-              var vm = this ;
-              console.log('新增的信息:',vm.form);
-              vm.tableData3.push(vm.form);
-              console.log('新增后的信息数据:',vm.tableData3);
-              this.dialogFormVisible = false;
-              // 提交后弹出成功提示语
-              // this.$message({
-              //   showClose: true,
-              //   message: '提交成功！',
-              //   type: 'success'
-              // });
-             
-            },
-            // 编辑功能
-            handleEdit(index, row) {
-              this.dialogFormVisible = true;
-              this.editForm = row;  //表示赋值、引用（浅拷贝）指向同一内存地址
-              this.editIndex = index;
-            },
-            //编辑中的提交
-            handledoneEdit(){
-               console.log(this.editIndex);
-               console.log(this.editForm);
-               var vm = this ;
-               vm.tableData3[this.editIndex] = this.editForm;
-               this.dialogFormVisible = false ;//设置false为不可见
-               // 提交后弹出成功提示语
-              this.$message({
-                showClose: true,
-                message: '提交成功！',
-                type: 'success'
-              });
-            },
-            
-            //转换时间格式方法
-            dateChange(val) {
-              this.form.date=val;
+          //重置添加订单表单
+          initForm(){
+            let vm = this;
+            vm.form = {
+              id:'',
+              name: '',
+              phone:'',
+              number:'',
+              total:'',
+              payS_shipS:'',
+              status:'',
+              date: '',
+              operate:'' ,
+              delivery: false,        
             }
+          },
+          // 添加订单按钮
+          handleCreate(){
+          //每次新增时，重置新增表单数据，避免双向绑定影响
+            this.initForm();
+            this.dialogeditFormVisible = true;
+          },
+          //（添加订单）新增功能
+          handleCreateOrder(){
+            var vm = this ;
+            console.log('新增的信息:',vm.form);
+            vm.tableData3.push(vm.form);
+            console.log('新增后的信息数据:',vm.tableData3);
+            this.dialogeditFormVisible = false;
+            // 提交后弹出成功提示语
             
            
-
-
+          },
+          // 编辑功能
+          handleEdit(index, row) {
+            this.dialogFormVisible = true;
+            this.editForm = row;  //表示赋值、引用（浅拷贝）指向同一内存地址
+            this.editIndex = index;
+          },
+          //编辑中的提交
+          handledoneEdit(){
+             console.log(this.editIndex);
+             console.log(this.editForm);
+             var vm = this ;
+             vm.tableData3[this.editIndex] = this.editForm;
+             this.dialogFormVisible = false ;//设置false为不可见
+             // 提交后弹出成功提示语
+            this.$message({
+              showClose: true,
+              message: '提交成功！',
+              type: 'success'
+            });
+          },
+          
+          //转换时间格式方法
+          dateChange(val) {
+            this.form.date=val;
+          }
         }
   }
 </script>
