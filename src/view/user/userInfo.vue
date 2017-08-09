@@ -206,9 +206,9 @@
          handleSearch() {
            // console.log('submit!');
            var vm = this;
-           // for(var i = 0; i < vm.tableData3.length+1; i++){
+           for(var i = 0; i < vm.tableData3.length+1; i++){//第二次筛选
 
-               for(var item of vm.tableData3){
+               for(var item of vm.tableData3){//第一次筛选
                    // console.log(item)
                    if(vm.formInline.user != item.id){
                       var index = vm.tableData3.indexOf(item);
@@ -217,7 +217,7 @@
 
                     }
                }
-           // }
+           }
 
          },
          //重置新增表单form
