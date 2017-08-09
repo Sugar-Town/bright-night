@@ -28,7 +28,7 @@
         </el-form>
       </div>
 
-      <el-button type="primary" icon="search" @click="search" class="btn_search"></el-button>
+      <el-button type="primary" icon="search" @click="search('ruleForm')" class="btn_search"></el-button>
       <el-button type="warning" icon="document" @click="getData(),getData2()" class="btn_recovery">恢复数据</el-button>
 
       <!-- 查看盈利情况 -->
@@ -191,32 +191,41 @@
 
 
       //搜索数据
-      search(){
-        var vm = this;
+      search(formName){
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            var vm = this;
 
-        for(var i=0; i<vm.tableData.length+2;i++){
-          for(var searchlist of vm.tableData){
-            if(vm.ruleForm.jilu_input != searchlist.jilu_input){
-              // console.log(vm.ruleForm.jilu_input)
-              // console.log(searchlist.jilu_input)
-              var index = vm.tableData.indexOf(searchlist);
-              vm.tableData.splice(index,1);
-              console.log(index);
+            for(var i=0; i<vm.tableData.length+2;i++){
+              for(var searchlist of vm.tableData){
+                if(vm.ruleForm.jilu_input != searchlist.jilu_input){
+                  // console.log(vm.ruleForm.jilu_input)
+                  // console.log(searchlist.jilu_input)
+                  var index = vm.tableData.indexOf(searchlist);
+                  vm.tableData.splice(index,1);
+                  console.log(index);
+                }
+              }
             }
-          }
-        }
 
-        for(var i=0; i<vm.tableData2.length+1;i++){
-          for(var searchlist2 of vm.tableData2){
-            if(vm.ruleForm.jilu_input != searchlist2.jilu_input){
-              // console.log(vm.ruleForm.jilu_input)
-              // console.log(searchlist.jilu_input)
-              var index = vm.tableData2.indexOf(searchlist2);
-              vm.tableData2.splice(index,1);
-              console.log(index);
+            for(var i=0; i<vm.tableData2.length+1;i++){
+              for(var searchlist2 of vm.tableData2){
+                if(vm.ruleForm.jilu_input != searchlist2.jilu_input){
+                  // console.log(vm.ruleForm.jilu_input)
+                  // console.log(searchlist.jilu_input)
+                  var index = vm.tableData2.indexOf(searchlist2);
+                  vm.tableData2.splice(index,1);
+                  console.log(index);
+                }
+              }
             }
+
+          } else{
+            console.log('提交失败!!');
+            return false;
           }
-        }
+
+        });
 
       }
 
