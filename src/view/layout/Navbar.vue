@@ -6,7 +6,7 @@
         <i class="el-icon-caret-bottom"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
-        <router-link class='inlineBlock' to="/">
+        <router-link class='inlineBlock' to="/index/readme">
           <el-dropdown-item>
             首页
           </el-dropdown-item>
@@ -34,6 +34,7 @@
     },
     methods: {
       logout() {
+        this.$router.push("/");
       }
     }
   };
