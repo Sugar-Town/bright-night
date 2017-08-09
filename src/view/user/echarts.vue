@@ -35,10 +35,10 @@
             drawColumnChart() {
                 this.chartColumn = echarts.init(document.getElementById('chartColumn'));
                 this.chartColumn.setOption({
-                  title: { text: 'Column Chart' },
+                  title: { text: '各种类灯具销售情况' },
                   tooltip: {},
                   xAxis: {
-                      data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                      data: ["吊灯", "台灯", "吸顶灯", "落地灯", "壁灯", "筒灯"]
                   },
                   yAxis: {},
                   series: [{
@@ -52,7 +52,7 @@
                 this.chartBar = echarts.init(document.getElementById('chartBar'));
                 this.chartBar.setOption({
                     title: {
-                        text: 'Bar Chart',
+                        text: '近两年各地的销售量',
                         subtext: '数据来自网络'
                     },
                     tooltip: {
@@ -62,7 +62,7 @@
                         }
                     },
                     legend: {
-                        data: ['2011年', '2012年']
+                        data: ['2016年', '2017年']
                     },
                     grid: {
                         left: '3%',
@@ -80,12 +80,12 @@
                     },
                     series: [
                         {
-                            name: '2011年',
+                            name: '2016年',
                             type: 'bar',
                             data: [18203, 23489, 29034, 104970, 131744, 630230]
                         },
                         {
-                            name: '2012年',
+                            name: '2017年',
                             type: 'bar',
                             data: [19325, 23438, 31000, 121594, 134141, 681807]
                         }
@@ -96,13 +96,13 @@
                 this.chartLine = echarts.init(document.getElementById('chartLine'));
                 this.chartLine.setOption({
                     title: {
-                        text: 'Line Chart'
+                        text: '员工近一周的销售情况'
                     },
                     tooltip: {
                         trigger: 'axis'
                     },
                     legend: {
-                        data: ['邮件营销', '联盟广告', '搜索引擎']
+                        data: ['魏展颜', '莫一庭', '尤雨熙']
                     },
                     grid: {
                         left: '3%',
@@ -120,19 +120,19 @@
                     },
                     series: [
                         {
-                            name: '邮件营销',
+                            name: '魏展颜',
                             type: 'line',
                             stack: '总量',
                             data: [120, 132, 101, 134, 90, 230, 210]
                         },
                         {
-                            name: '联盟广告',
+                            name: '莫一庭',
                             type: 'line',
                             stack: '总量',
                             data: [220, 182, 191, 234, 290, 330, 310]
                         },
                         {
-                            name: '搜索引擎',
+                            name: '尤雨熙',
                             type: 'line',
                             stack: '总量',
                             data: [820, 932, 901, 934, 1290, 1330, 1320]
@@ -144,7 +144,7 @@
                 this.chartPie = echarts.init(document.getElementById('chartPie'));
                 this.chartPie.setOption({
                     title: {
-                        text: 'Pie Chart',
+                        text: '公司其他方面费用支出情况',
                         subtext: '纯属虚构',
                         x: 'center'
                     },
