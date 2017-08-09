@@ -3,66 +3,66 @@
     {
       "jilu_date": "2017-05-01",
       "jilu_input": "111",
-      "pay_name": "上海",
-      "do_name": "普陀区",
-      "region": "上海市普陀区金沙江路 1518 弄",
+      "pay_name": "广州喜洋洋有限公司",
+      "do_name": "李彩娇",
+      "region": "部门一",
       "jilu_add": "200333",
       "jilu_part": "5555",
-      "jilu_get": 4444
+      "jilu_get": 10000
     }, {
       "jilu_date": "2017-05-02",
       "jilu_input": "222",
-      "pay_name": "上海",
-      "do_name": "普陀区",
-      "region": "上海市普陀区金沙江路 1518 弄",
+      "pay_name": "阳江哇哈哈有限公司",
+      "do_name": "白展堂",
+      "region": "部门二",
       "jilu_add": "200333",
       "jilu_part": "5555",
-      "jilu_get": 4444
+      "jilu_get": 23000
     }, {
       "jilu_date": "2017-05-03",
       "jilu_input": "333",
-      "pay_name": "上海",
-      "do_name": "普陀区",
-      "region": "上海市普陀区金沙江路 1518 弄",
+      "pay_name": "阳西喜之郎有限公司",
+      "do_name": "白展堂",
+      "region": "部门二",
       "jilu_add": "200333",
       "jilu_part": "5555",
-      "jilu_get": 4444
+      "jilu_get": 11000
     }, {
       "jilu_date": "2017-05-04",
       "jilu_input": "444",
-      "pay_name": "上海",
-      "do_name": "普陀区",
-      "region": "上海市普陀区金沙江路 1518 弄",
+      "pay_name": "广州喜洋洋有限公司",
+      "do_name": "李白",
+      "region": "部门二",
       "jilu_add": "200333",
       "jilu_part": "5555",
-      "jilu_get": 4444
+      "jilu_get": 22000
     }, {
       "jilu_date": "2017-05-05",
       "jilu_input": "555",
-      "pay_name": "上海",
-      "do_name": "普陀区",
-      "region": "上海市普陀区金沙江路 1518 弄",
+      "pay_name": "阳西喜之郎有限公司",
+      "do_name": "李彩娇",
+      "region": "部门一",
       "jilu_add": "200333",
       "jilu_part": "5555",
-      "jilu_get": 4444
+      "jilu_get": 30000
     }, {
       "jilu_date": "2017-05-06",
       "jilu_input": "666",
-      "pay_name": "上海",
-      "do_name": "普陀区",
-      "region": "上海市普陀区金沙江路 1518 弄",
+      "pay_name": "阳西喜之郎有限公司",
+      "do_name": "李彩娇",
+      "region": "部门一",
       "jilu_add": "200333",
       "jilu_part": "5555",
-      "jilu_get": 4444
+      "jilu_get": 21000
     }, {
       "jilu_date": "2017-05-07",
       "jilu_input": "777",
-      "pay_name": "上海",
-      "do_name": "普陀区",
-      "region": "上海市普陀区金沙江路 1518 弄",
+      "pay_name": "阳江哇哈哈有限公司",
+      "do_name": "李白",
+      "region": "部门二",
       "jilu_add": "200333",
       "jilu_part": "5555",
-      "jilu_get": 4444
+      "jilu_get": 31000
     }
   ]
 }
