@@ -23,7 +23,6 @@
                       <el-input v-model="ruleForm.input" placeholder="请输入单据编号"></el-input>
                     </div> -->
 
-                  
                     <el-form-item label="单据编号：" prop="jilu_input">
                       <el-input v-model="ruleForm.jilu_input"></el-input>
                     </el-form-item>
@@ -31,7 +30,7 @@
 
 
                   <!-- 付款单位、经手人等信息 -->
-                 
+      
                   <div class="jilu_content">
                     <el-form-item label="付款方：" prop="pay_name">
                       <el-input v-model="ruleForm.pay_name"></el-input>
@@ -49,7 +48,7 @@
                     </el-form-item>
                   </div>
 
-                    <!-- <br/><br/><br/><br/> -->
+
                   <div class="jilu_one">
                     <span class="demonstration">附加说明：</span>
                     <el-input v-model="ruleForm.jilu_add"></el-input>
@@ -74,7 +73,7 @@
 
                   <div class="jilu_table">
                     <el-table :data="tableData" border style="width: 100%" max-height="600">
-<!--                        <el-table-column prop="jilu_date" label="录入时间" sortable width="130">
+<!--                   <el-table-column prop="jilu_date" label="录入时间" sortable width="130">
                        </el-table-column> -->
                        <el-table-column prop="jilu_date" label="录入时间" sortable width="130">
                           <template scope="scope">
@@ -97,11 +96,11 @@
                        </el-table-column>
                        <el-table-column fixed="right" label="操作" width="150">
                          <template scope="scope">
-                         <el-button size="small" @click="editData(scope.row,scope.$index,'ModalsForm')">编辑</el-button>
+                         <el-button size="small" @click="editData(scope.row,scope.$index)">编辑</el-button>
                          <el-button size="small" type="danger" @click.native.prevent="deleteRow(scope.$index, tableData)">删除</el-button>
-          <!--                  <el-button @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">
+                      <!--<el-button @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">
                              移除
-                           </el-button> -->
+                          </el-button> -->
                          </template>
                        </el-table-column>
                      </el-table>
@@ -264,7 +263,7 @@
                         </el-table-column>
                         <el-table-column fixed="right" label="操作" width="150">
                           <template scope="scope">
-                          <el-button size="small" @click="editData2(scope.row,scope.$index,'ModalsForm2')">编辑</el-button>
+                          <el-button size="small" @click="editData2(scope.row,scope.$index)">编辑</el-button>
                           <el-button size="small" type="danger" @click.native.prevent="deleteRow(scope.$index, tableData2)">删除</el-button>
                           </template>
                         </el-table-column>
@@ -354,14 +353,17 @@
         return {
 
           // -------------------------------------- 入款单 ----------------------------------------------
+          //页面开始显示第一个tab页
           activeName: 'first',
 
+          //日期选择，返回值
           pickerOptions0: {
             disabledDate(time) {
                return time.getTime() < Date.now() - 8.64e7;
              }
           },
 
+          //入款单增添数据表单
           ruleForm: {
             jilu_date:'',
             jilu_input: '',
@@ -373,6 +375,7 @@
             jilu_get: ''
           },
 
+          //入款单表格数据
           tableData: [{
             jilu_date: '',
             jilu_input: '',
@@ -412,11 +415,11 @@
             ],
             pay_name: [
               { required: true, message: '请输入付款方名称', trigger: 'blur' },
-              { min: 2, max: 8, message: '长度在 2 到 8 个字符', trigger: 'blur' }
+              { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
             ],
             do_name: [
               { required: true, message: '请输入经手人名称', trigger: 'blur' },
-              { min: 2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }
+              { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
             ],
             region: [
               { required: true, message: '请选择部门', trigger: 'blur' }
@@ -424,7 +427,6 @@
             jilu_get: [
               // { required: true, message: '收取金额不能为空', trigger: 'blur'},
               // { value!=^[0-9]*$ , message: '收取金额必须为数字值'}
-
 
               // 自定义校验规则
               //数字校验
@@ -445,6 +447,8 @@
               // { required: true, message: '收取金额不能为空', trigger: 'blur'},
               // { value!=^[0-9]*$ , message: '收取金额必须为数字值'}
 
+              // 自定义校验规则
+              //数字校验
               {validator:(rule,value,callback)=>{
                 if (!value) {
                   return callback(new Error('收取金额不能为空'));
@@ -461,6 +465,7 @@
 
 
           // ---------------------------------------- 出款单 ---------------------------------------------
+          //出款单增添数据表单
           paragraphList: {
             jilu_date:'',
             jilu_input: '',
@@ -472,7 +477,7 @@
             jilu_charge: ''
           },
 
-
+          //出款单表格数据
           tableData2: [{
             jilu_date: '',
             jilu_input: '',
@@ -484,7 +489,7 @@
             jilu_charge: 0
           }],
 
-
+          // 出款单弹窗
           ModalsForm2: {
             jilu_date:'',
             jilu_input: '',
@@ -508,6 +513,8 @@
       },
       mounted(){
         var vm = this;
+
+        //获取json数据
         vm.getData();
         vm.getData2();
       },
@@ -543,12 +550,14 @@
 
 //-------- 入款单 -------
         // @change 时间格式转换
+        //入款单增添数据表单时间
         setDate(val) {
           this.ruleForm.jilu_date=val;
           // this.tableData.jilu_date=val;
           // this.ModalsForm.jilu_date=val;
         },
 
+        //入款单编辑数据表单时间
         setDate2(val){
           this.ModalsForm.jilu_date=val;
           
@@ -573,7 +582,7 @@
         },
 
 
-        //增添数据
+        //增添入款单数据
         submitForm(formName) {
           this.$refs[formName].validate((valid) => {
             if (valid) {
@@ -610,7 +619,7 @@
 
         },
 
-        // 重置表单
+        // 重置入款单增添数据表单
         resetForm(formName) {
           this.$refs[formName].resetFields();
           //重置下新增表单数据，避免双向绑定
@@ -623,8 +632,8 @@
           rows.splice(index, 1);
         },
 
-        // 编辑弹出框
-        editData(row,_index,formName){
+        // 入款单编辑弹出框
+        editData(row,_index){
           // alert(0);
           let vm = this;
           //显示弹窗
@@ -636,38 +645,26 @@
           //记录索引
           this.listIndex=_index;
           //记录数据
-          this.ModalsForm=row;
+          // this.ModalsForm=row;
           // this.ModalsForm=JSON.parse(JSON.stringify(row));
-          // this.ModalsForm=Object.assign({}, row);
-          // this.$refs[formName].resetFields();
+
+          //深拷贝，无数据双向绑定
+          this.ModalsForm=Object.assign({}, row);
         },
 
         // 提交修改
         submitEdit(formName) {
           // var set = this;
           this.$refs[formName].validate((valid) => {
-            // console.log("rrrr ",this.ModalsForm);
-            // console.log("rrrr ",this.ModalsForm.jilu_input);
             if (valid) {
-              // alert(1);
               let _index=this.listIndex;
               //根据索引，赋值到list制定的数
               this.tableData[_index]=this.ModalsForm;
-              // this.tableData[_index].jilu_date = this.ModalsForm.jilu_date;
-              
-              // let vm = this;
-              // var index = vm.tableData.indexOf(set.tableData)
-              // vm.tableData.splice(_index,1);
-              // console.log(_index)
-              // vm.tableData.push(vm.ModalsForm)
-
-              // let vm = this;
-              // vm.tableData.push(vm.ModalsForm)
-
-
-              // this.dialogFormVisible = false;
+              //根据索引，删除当前行的值，并用修改的数据替换当前行的值
+              this.tableData.splice(_index,1,this.ModalsForm);
 
               alert('提交成功!');
+              //关闭弹窗
               this.dialogFormVisible=false;
             } else {
               console.log('error submit!!');
@@ -703,10 +700,12 @@
 
     //------------------ 出款单 ----------------
     // @change 时间格式转换
+    //出款单增添数据表单时间
     p_setDate(val) {
       this.paragraphList.jilu_date=val;
     },
 
+    //出款单编辑数据表单时间
     p_setDate2(val) {
       this.ModalsForm2.jilu_date=val;
       
@@ -730,7 +729,7 @@
     },
 
 
-    //提交数据
+    //出款单提交新增数据
     submitForm2(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -778,38 +777,30 @@
 
 
       // 编辑弹出框
-      editData2(row,_index,formName){
+      editData2(row,_index){
         // alert(0);
         let vm = this;
         //显示弹窗
         vm.dialogFormVisible2 = true;
-        
-        // vm.ModalsForm.push(vm.tableData);
-        // console.log("弹出表格",vm.ModalsForm);
 
         //记录索引
         this.listIndex=_index;
         //记录数据
-        this.ModalsForm2=row;
-        // this.ModalsForm2=Object.assign({}, row);
-        // this.$refs[formName].resetFields();
+        // this.ModalsForm2=row;
+        //深拷贝，无数据双向绑定
+        this.ModalsForm2=Object.assign({}, row);
       },
 
-      // 提交修改
+      // 出款单提交修改数据
       submitEdit2(formName) {
         this.$refs[formName].validate((valid) => {
-          // console.log("rrrr ",this.ModalsForm);
-          // console.log("出款单弹窗日期数据 ",this.ModalsForm.jilu_input);
           if (valid) {
             // alert(1);
             let _index=this.listIndex;
             //根据索引，赋值到list制定的数
             this.tableData2[_index]=this.ModalsForm2;
-
-            // let vm = this;
-            // vm.tableData2.push(vm.ModalsForm2);
-            
-            // this.dialogFormVisible = false;
+            //根据索引，删除当前行的值，并用修改的数据替换当前行的值
+            this.tableData2.splice(_index,1,this.ModalsForm2);
 
             alert('提交成功!');
             this.dialogFormVisible2=false;
