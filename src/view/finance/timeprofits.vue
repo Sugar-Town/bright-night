@@ -123,11 +123,12 @@
         // 总利润
         profits: '0.00',
 
-
+        //单据编号
         ruleForm:{
           jilu_input: '',
         },
 
+        //单据编号验证
         rules:{
             jilu_input: [
               { required: true, message: '请输入单据编号', trigger: 'blur' },
@@ -155,10 +156,6 @@
               region: '',
               jilu_charge: 0
             }],
-
-
-
-
 
       };
     },
@@ -197,6 +194,7 @@
           if (valid) {
             var vm = this;
 
+            //v-for 遍历数据，把不相等的数据删去
             for(var i=0; i<vm.tableData.length+2;i++){
               for(var searchlist of vm.tableData){
                 if(vm.ruleForm.jilu_input != searchlist.jilu_input){
@@ -209,17 +207,29 @@
               }
             }
 
-            for(var i=0; i<vm.tableData2.length+1;i++){
-              for(var searchlist2 of vm.tableData2){
-                if(vm.ruleForm.jilu_input != searchlist2.jilu_input){
-                  // console.log(vm.ruleForm.jilu_input)
-                  // console.log(searchlist.jilu_input)
-                  var index = vm.tableData2.indexOf(searchlist2);
-                  vm.tableData2.splice(index,1);
-                  console.log(index);
-                }
-              }
-            }
+
+
+            //假查询，请求cwData_out2的json数据
+            this.$http.get(api.cwData_out2,{params:vm.ruleForm}).then(function(response){ 
+              // console.log(response);
+              // console.log('这是我们需要的json数据',response.data.tableList)
+              this.tableData2 = response.data.tableList2;
+            },function(response){
+              alert('请求失败了')
+            })
+            
+
+            // for(var i=0; i<vm.tableData2.length+1;i++){
+            //   for(var searchlist2 of vm.tableData2){
+            //     if(vm.ruleForm.jilu_input != searchlist2.jilu_input){
+            //       // console.log(vm.ruleForm.jilu_input)
+            //       // console.log(searchlist.jilu_input)
+            //       var index = vm.tableData2.indexOf(searchlist2);
+            //       vm.tableData2.splice(index,1);
+            //       console.log(index);
+            //     }
+            //   }
+            // }
 
           } else{
             console.log('提交失败!!');

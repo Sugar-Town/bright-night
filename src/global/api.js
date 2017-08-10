@@ -14,6 +14,7 @@ export const api = {
             'customerOrder':url.staticPath+'dataJson/customerOrder.json',
             'cwData_in':url.staticPath+'dataJson/cwData_in.json',
             'cwData_out':url.staticPath+'dataJson/cwData_out.json', 
+            'cwData_out2':url.staticPath+'dataJson/cwData_out2.json', 
             'goods':url.staticPath+'dataJson/goods.json',
             'kfData':url.staticPath+'dataJson/kfData.json', 
             'logisticsCompany':url.staticPath+'dataJson/logisticsCompany.json', 

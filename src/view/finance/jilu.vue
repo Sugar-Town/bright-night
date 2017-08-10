@@ -404,7 +404,7 @@
 
           //-----------------------------------------------------------------------------------------------------
 
-
+          //数据校验
           rules: {
             jilu_input: [
               { required: true, message: '请输入单据编号', trigger: 'blur' },
@@ -425,6 +425,9 @@
               // { required: true, message: '收取金额不能为空', trigger: 'blur'},
               // { value!=^[0-9]*$ , message: '收取金额必须为数字值'}
 
+
+              // 自定义校验规则
+              //数字校验
               {validator:(rule,value,callback)=>{
                 if (!value) {
                   return callback(new Error('收取金额不能为空'));
