@@ -346,7 +346,7 @@ width: 420px
 .outbox .el-dialog__footer {
   clear: both;
 }
-.el-form-item__label {
+.outbox .el-form-item__label {
   width: 100px;
 }
-</style>s
+</style>
