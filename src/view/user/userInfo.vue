@@ -12,8 +12,8 @@
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.region" placeholder="请选择员工类型">
-            <el-option label="主管" value="shanghai"></el-option>
-            <el-option label="普通员工" value="beijing"></el-option>
+            <el-option label="主管" value="leader"></el-option>
+            <el-option label="普通员工" value="employee"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -202,22 +202,37 @@
           }, function(response){
             alert("请求失败了")
           })
+
          },
+         //表头  查询
          handleSearch() {
            // console.log('submit!');
            var vm = this;
-           for(var i = 0; i < vm.tableData3.length+1; i++){//第二次筛选
+           // 假查询
+           this.$http.get(api.userInfo2,{params:vm.formInline}).then(function(response){
+               // alert(1);
+             console.log('response',response)
+             // console.log("这是我们需要的json数据",response.data.tableData3)
+             this.tableData3 = response.data.tableData3;
 
-               for(var item of vm.tableData3){//第一次筛选
-                   // console.log(item)
-                   if(vm.formInline.user != item.id){
-                      var index = vm.tableData3.indexOf(item);
-                      console.log(index)
-                      vm.tableData3.splice(index,1);//把index和id不相等的记录删除，删位置index
+           }, function(response){
+             alert("请求失败了")
+           })
 
-                    }
-               }
-           }
+
+
+           // for(var i = 0; i < vm.tableData3.length+1; i++){//第二次筛选
+
+           //     for(var item of vm.tableData3){//第一次筛选
+           //         // console.log(item)
+           //         if(vm.formInline.user != item.id){
+           //            var index = vm.tableData3.indexOf(item);
+           //            console.log(index)
+           //            vm.tableData3.splice(index,1);//把index和id不相等的记录删除，删位置index
+
+           //          }
+           //     }
+           // }
 
          },
          //重置新增表单form
@@ -268,6 +283,7 @@
             var vm = this;
              // // vm.tableData3.push(vm.editForm);
             vm.tableData3[this.editIndex] = this.editForm;
+            vm.tableData3.splice(this.editIndex,1,this.editForm);//解除了深拷贝带来的影响，可以渲染到视图层了（此处搞了N久，哈哈哈，终于拿下它了！）
             // console.log(vm.tableData3[this.editIndex]);
             // store.dispatch(vm.tableData3[this.editIndex]);
             this.dialogFormVisible1 = false;
@@ -285,15 +301,19 @@
          //批量删除
          handleDelAll(){
             let vm = this;
-            console.log("批量删除的index：",this.delIndex);
-            console.log("批量删除的row：",vm.multipleSelection);
+            // console.log("批量删除的index：",vm.delIndex);
+            console.log("批量删除的row：",vm.multipleSelection);//对象数组
             //实际开发，不需要使用splice，我们只需要对 vm.multipleSelection 进行for循环，然后拿到每一条id，拼接成一个数组传给接口即可，例如[1,3,5]
             for(var i = 0; i < vm.multipleSelection.length; i++){
               console.log(vm.multipleSelection[i]);//循环遍历出数组中的每一条对象
               // console.log(vm.multipleSelection[i].id);
-              // this.tableData3.splice(vm.multipleSelection[i].id,1);//
               var ids = this.multipleSelection.map(item => item.id).join()
-              //获取所有选中行的id组成的字符串，以逗号分隔  
+              //获取所有选中行的id组成的字符串，以逗号分隔
+              //  //对象转数组
+              // ids = Array.prototype.slice.call(ids);
+              // console.log(ids instanceof Array);
+             
+
             }
             console.log("获取到所有选中的id，组成新的数组是：",ids);
 

@@ -14,7 +14,6 @@ export const api = {
             'customerOrder':url.staticPath+'dataJson/customerOrder.json',
             'cwData_in':url.staticPath+'dataJson/cwData_in.json',
             'cwData_out':url.staticPath+'dataJson/cwData_out.json', 
-            'cwData_out2':url.staticPath+'dataJson/cwData_out2.json', 
             'goods':url.staticPath+'dataJson/goods.json',
             'kfData':url.staticPath+'dataJson/kfData.json', 
             'logisticsCompany':url.staticPath+'dataJson/logisticsCompany.json', 
@@ -24,6 +23,7 @@ export const api = {
             'productInfo':url.staticPath+'dataJson/productInfo.json',   
             'productList':url.staticPath+'dataJson/productList.json',   
             'sale':url.staticPath+'dataJson/sale.json',   
-            'userInfo':url.staticPath+'dataJson/userInfo.json',   
+            'userInfo':url.staticPath+'dataJson/userInfo.json',
+            'userInfo2':url.staticPath+'dataJson/userInfo2.json',   
             'weather_mini':url.staticPath+'dataJson/weather_mini.json'  
     }
