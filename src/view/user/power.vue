@@ -108,6 +108,7 @@
   </div>
 </template>
 <script>
+  import {api} from '@/global/api'
   export default {
       data () {
           return {
@@ -147,7 +148,7 @@
          getData(){
           // return this.bb;
 
-          this.$http.get('../../../static/dataJson/power.json').then(function(response){
+          this.$http.get(api.power).then(function(response){
               // alert(1);
             console.log('response',response)
             // console.log("这是我们需要的json数据",response.data.tableData1)

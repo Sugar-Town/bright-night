@@ -54,6 +54,7 @@
   </div>
 </template>
 <script>
+  import {api} from '@/global/api'
   export default {
       data () {
           return {
@@ -103,7 +104,7 @@
            getData(){
             // return this.bb;
 
-            this.$http.get('../../../static/dataJson/sale.json').then(function(response){
+            this.$http.get(api.sale).then(function(response){
                 // alert(1);
               console.log('response',response)
               // console.log("这是我们需要的json数据",response.data.tableData)

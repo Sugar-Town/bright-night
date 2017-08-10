@@ -582,7 +582,7 @@
 
         //获取入款单表格数据
         getData(){
-          this.$http.get('../../static/dataJson/cwData_in.json',{params:{'key':this.jilu_input}}).then(function(response){ 
+          this.$http.get(api.cwData_in,{params:{'key':this.jilu_input}}).then(function(response){ 
             // console.log(response);
             // console.log('这是我们需要的json数据',response.data.tableList)
             this.tableData = response.data.tableList;
@@ -593,7 +593,7 @@
 
         //获取出款单表格数据
         getData2(){
-          this.$http.get('../../static/dataJson/cwData_out.json').then(function(response){ 
+          this.$http.get(api.cwData_out).then(function(response){ 
             // console.log(response);
             // console.log('这是我们需要的json数据',response.data.tableList2)
             this.tableData2 = response.data.tableList2;

@@ -153,6 +153,7 @@
 </template>
 
 <script>
+  import {api} from '@/global/api'
   export default {
     name: 'OrderDetailPane',
     data() {
@@ -219,7 +220,7 @@
       //获取商品数据
       getGoodsList: function() {
         var vm = this;
-        this.$http.get('.././static/dataJson/goods.json').then(function(response) {
+        this.$http.get(api.goods).then(function(response) {
             vm.goodList = response.body.data.goodList;
           }, function(response) {
             alert("请求失败了");
@@ -228,7 +229,7 @@
       //获取快递公司列表
       logisticsCompanyList: function() {
         var vm = this;
-        this.$http.get('.././static/dataJson/logisticsCompany.json').then(function(response) {
+        this.$http.get(api.logisticsCompany).then(function(response) {
           this.selectLogisticsCompany = response.body.data.logisticsCompany;           
         }, function(response) {
             alert("请求失败了");

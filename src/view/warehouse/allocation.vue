@@ -93,6 +93,7 @@
 </template>
 
 <script>
+  import {api} from '@/global/api'
   export default {
     data() {
       return {
@@ -156,7 +157,7 @@
   },
   methods: {
   getData (){
-          this.$http.get('../../../static/dataJson/kfData.json').then(function (response){
+          this.$http.get(api.kfData).then(function (response){
             console.log(response)
             console.log('这是我们需要的json数据', response.data.altableData)
             this.altableData = response.data.altableData;
