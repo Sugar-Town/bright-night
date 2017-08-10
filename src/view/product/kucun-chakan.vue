@@ -112,6 +112,7 @@
   </div>
 </template>
 <script>
+  import {api} from '@/global/api'
   export default {
       data () {
           return {
@@ -147,7 +148,7 @@
       methods: {
             getList: function() {
                 var vm = this;
-                this.$http.get('.././static/dataJson/chakan.json').then(function(response) {
+                this.$http.get(api.chakan).then(function(response) {
                     var data = response.body;
                     vm.tableData3 = data.data;
 

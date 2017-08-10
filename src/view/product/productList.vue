@@ -189,7 +189,7 @@
 <script>
 
   const tags = [{id: 1, name: '新品上架'}, {id: 2, name: '热卖促销'}, {id: 3, name: '新客优惠'}];
-  
+  import {api} from '@/global/api'
   export default {
     data() {
       return {
@@ -263,7 +263,7 @@
         var vm = this;
         //在控制台输出查询条件
         console.log("+++++", JSON.stringify(vm.productListQuery));
-        this.$http.get('.././static/dataJson/productList.json',{params: vm.productListQuery}).then(function(response) {
+        this.$http.get(api.productList,{params: vm.productListQuery}).then(function(response) {
             var data = response.body;
             vm.tableList = data.data.productList;
             vm.productListQuery.currPage = data.data.currPage;

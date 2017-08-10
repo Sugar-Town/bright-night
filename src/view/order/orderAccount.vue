@@ -203,7 +203,7 @@
         var vm = this;
         //在控制台输出查询条件
         console.log(JSON.stringify(vm.listQuery));
-        this.$http.get('api.orderInfo',{params: vm.listQuery}).then(function(response) {
+        this.$http.get(api.orderInfo,{params: vm.listQuery}).then(function(response) {
             var data = response.body;
             vm.list = data.data.data;
             vm.listQuery.currPage = data.data.currPage;

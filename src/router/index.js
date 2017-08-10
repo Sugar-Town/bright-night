@@ -108,7 +108,7 @@ export default new Router({
           path: 'finance', 
           component: Finance,
           children: [
-            { path: 'jilu', component: Jilu, name: '记录出款可入款'  },
+            { path: 'jilu', component: Jilu, name: '记录出款和入款'  },
             { path: 'timeProfits', component: TimeProfits, name: '计算一段时间的利润' },
             { path: 'echart', component: F_Echarts, name: '查看盈利情况'  }
           ]

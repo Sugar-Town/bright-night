@@ -141,6 +141,7 @@
  </div>
 </template>
 <script>
+import {api} from '@/global/api'
 import Vue from 'vue'
   export default {
       data () {
@@ -167,7 +168,7 @@ import Vue from 'vue'
        },
       methods: {
       getData () {
-        this.$http.get('../../static/dataJson/kfData.json', {params: {'key': this.inputValue}}).then(function (response) {
+        this.$http.get(api.kfData, {params: {'key': this.inputValue}}).then(function (response) {
           console.log(response)
           console.log('这是我们需要的json数据', response.data.OuttableData)
           this.OuttableList = response.data.OuttableData;

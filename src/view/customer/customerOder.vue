@@ -152,6 +152,7 @@
   </div>
 </template>
 <script>
+  import {api} from '@/global/api'
   export default {
       data () {
           return {
@@ -204,7 +205,7 @@
           //通过json导入数据
           getList:function(){
             var vm = this ;
-            this.$http.get('../../../static/dataJson/customerOrder.json').then(function(response){
+            this.$http.get(api.customerOrder).then(function(response){
               console.log(response)
               vm.tableData3 = response.data.tableData3;
             })

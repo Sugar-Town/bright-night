@@ -10,19 +10,19 @@ let url = {
 
 //----------------请注意：如果正式环境，不需要本地json数据模拟，请删除以上代码和api中的模拟接口。----------------
 export const api = {
-            'chakan':url.staticPath+'/dataJson/chakan.json',
-            'customerOrder':url.staticPath+'/dataJson/customerOrder.json',
-            'cwData_in':url.staticPath+'/dataJson/cwData_in.json',
-            'cwData_out':url.staticPath+'/dataJson/cwData_out.json', 
-            'goods':url.staticPath+'/dataJson/goods.json',
-            'kfData':url.staticPath+'/dataJson/kfData.json', 
-            'logisticsCompany':url.staticPath+'/dataJson/logisticsCompany.json', 
-            'orderColleague':url.staticPath+'/dataJson/orderColleague.json',   
-            'orderInfo':url.staticPath+'/dataJson/orderInfo.json',   
-            'power':url.staticPath+'/dataJson/power.json',   
-            'productInfo':url.staticPath+'/dataJson/productInfo.json',   
-            'productList':url.staticPath+'/dataJson/productList.json',   
-            'sale':url.staticPath+'/dataJson/sale.json',   
-            'userInfo':url.staticPath+'/dataJson/userInfo.json',   
-            'weather_mini':url.staticPath+'/dataJson/weather_mini.json'  
+            'chakan':url.staticPath+'dataJson/chakan.json',
+            'customerOrder':url.staticPath+'dataJson/customerOrder.json',
+            'cwData_in':url.staticPath+'dataJson/cwData_in.json',
+            'cwData_out':url.staticPath+'dataJson/cwData_out.json', 
+            'goods':url.staticPath+'dataJson/goods.json',
+            'kfData':url.staticPath+'dataJson/kfData.json', 
+            'logisticsCompany':url.staticPath+'dataJson/logisticsCompany.json', 
+            'orderColleague':url.staticPath+'dataJson/orderColleague.json',   
+            'orderInfo':url.staticPath+'dataJson/orderInfo.json',   
+            'power':url.staticPath+'dataJson/power.json',   
+            'productInfo':url.staticPath+'dataJson/productInfo.json',   
+            'productList':url.staticPath+'dataJson/productList.json',   
+            'sale':url.staticPath+'dataJson/sale.json',   
+            'userInfo':url.staticPath+'dataJson/userInfo.json',   
+            'weather_mini':url.staticPath+'dataJson/weather_mini.json'  
     }

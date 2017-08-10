@@ -143,6 +143,7 @@
 <script>
   import Img from '../../assets/light02.jpg' //图片的封装
   import { mapGetters } from 'vuex';         //编辑
+  import {api} from '@/global/api'
   export default {
       data () {
           return {
