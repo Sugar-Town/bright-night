@@ -327,13 +327,13 @@
 </script>
 
 <style>
-  .good-manage-list.menu-popper-class {
+ .app-container .good-manage-list.menu-popper-class {
     min-width: 60px !important;
   }
-.filter-container {
+.app-container .filter-container {
   margin-bottom: 15px;
 }
-.pagination-container {
+.app-container .pagination-container {
   margin-top: 15px;
   margin-bottom: 15px;
 }

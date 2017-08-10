@@ -1,4 +1,5 @@
 <template>
+<div class="u_echarts">
     <section class="chart-container">
         <el-row>
             <el-col :span="12">
@@ -18,6 +19,7 @@
             </el-col>
         </el-row>
     </section>
+</div>
 </template>
 
 <script>
@@ -198,7 +200,7 @@
 </script>
 
 <style scoped>
-    .chart-container {
+    .u_echarts .chart-container {
         width: 90%;
         position: absolute;
     }
@@ -206,7 +208,7 @@
         height: 400px;
         float: left;
     }*/
-    .el-col {
+    .u_echarts .el-col {
         padding: 30px 20px;
     }
 </style>

@@ -245,14 +245,14 @@
   a {
     text-decoration: none;
   }
-  .el-table .info-row {
+  .customervip .el-table .info-row {
     background: #c9e5f5;
   }
 
-  .el-table .positive-row {
+  .customervip .el-table .positive-row {
     background: #e2f0e4;
   }
-  .cum_list{
+  .customervip .cum_list{
     width: 1223px;
   }
 </style>

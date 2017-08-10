@@ -255,13 +255,13 @@
     margin:20px;
     position: absolute;
   }
-  .one{
+  .post1 .one{
     margin-bottom: 10px;
   }
-  .block{
+  .post1 .block{
     margin-top: 20px;
   }
-  .dialog-footer{
+  .post1 .dialog-footer{
     clear: both;
   }
 </style>

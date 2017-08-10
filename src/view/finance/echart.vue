@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="f_echart">
     <div class="back">
        <router-link to="./timeprofits"><el-button type="success" @click="">返回</el-button></router-link>
     </div>
@@ -11,7 +11,7 @@
             </el-col>
         </el-row>
     </section>
-    </div>
+</div>
 </template>
 
 <script>
@@ -89,7 +89,7 @@
 </script>
 
 <style scoped>
-    .chart-container {
+    .f_echart .chart-container {
         width: 90%;
         position: absolute;
     }
@@ -97,11 +97,11 @@
         height: 400px;
         float: left;
     }*/
-    .el-col {
+    .f_echart .el-col {
         padding: 30px 20px;
     }
 
-    .back{
+    .f_echart .back{
         margin-left: 32px;
         margin-top: 20px;
     }

@@ -147,14 +147,14 @@
   .new-user{
     position: absolute;
   }
-  .title{
+  .new-user .title{
     text-align: center;
     margin-bottom: 50px;
   }
-  .el-col-2{
+  .new-user .el-col-2{
     text-align: center;
   }
-  .btn{
+  .new-user .btn{
     margin-left: 100px;
   }
 

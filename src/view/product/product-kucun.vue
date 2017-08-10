@@ -5,7 +5,7 @@
       <el-breadcrumb-item :to="{ path: '/' }">产品管理</el-breadcrumb-item>
       <el-breadcrumb-item>产品库存</el-breadcrumb-item>
     </el-breadcrumb> -->
-
+    <div class="post2">
     <div class="one">
       <el-button  type="success"><i class="fa fa-plus-circle" aria-hidden="true"></i>  添加</el-button>
       <el-button  type="info"><i class="fa fa-pencil" aria-hidden="true"></i>  修改</el-button>
@@ -25,7 +25,7 @@
         </li>
       </ul>
     </div>
-
+   </div>
   </div>
 </template>
 <script>
@@ -46,10 +46,10 @@
   a {
     text-decoration: none;
   }
-  .userInfo{
+  .post2{
     margin:20px;
   }
-  .two ul li{
+  .post2 .two ul li{
     list-style: none;
     width: 150px;
     height: 182px;
@@ -57,17 +57,17 @@
     margin-right: 30px;
     border: 1px solid #fff;
   }
-  .two ul li:hover{
+  .post2 .two ul li:hover{
     border: 1px solid blue;
     cursor: pointer;
   }
-  .two{
+  .post2 .two{
     margin-top: 50px;
   }
-  .two img{
+  .post2 .two img{
     margin: 8px;
   }
-  .two p{
+  .post2 .two p{
     text-align: center;
   }
 

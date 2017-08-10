@@ -194,19 +194,19 @@
       padding-top: 20px;
     } 
   }
-  .el-table {
+  .app-container .el-table {
     margin-top: 20px;
   } 
-  .edit {
+  .app-container .edit {
     float: left;
   }
-  .delete {
+  .app-container .delete {
     float: right;
   }
-  .pagination-container {
+  .app-container .pagination-container {
     margin-top: 15px;
   }
-  .top-distance {
+  .app-container .top-distance {
     margin-top: 15px;
   }
 </style>

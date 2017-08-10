@@ -4,7 +4,7 @@
       <el-breadcrumb-item :to="{ path: '/' }">产品管理</el-breadcrumb-item>
       <el-breadcrumb-item>产品属性管理</el-breadcrumb-item>
     </el-breadcrumb> -->
-
+    <div class="post1">
     <div class="one">
       <el-tabs type="border-card">
 
@@ -137,6 +137,7 @@
            </el-form>
         </el-tab-pane>
       </el-tabs>
+    </div>
     </div>
   </div>
 </template>
@@ -292,7 +293,7 @@
   a {
     text-decoration: none;
   }
-  .one{
+  .post1 .one{
     margin: 20px;
   }
   /*.user_img img{
@@ -301,54 +302,54 @@
   }*/
 
   /*上传图片框的样式*/
-  .avatar-uploader .el-upload {
+  .post1 .avatar-uploader .el-upload {
       border: 1px dashed #d9d9d9;
       border-radius: 6px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
     }
-    .avatar-uploader .el-upload:hover {
+  .post1 .avatar-uploader .el-upload:hover {
       border-color: #20a0ff;
-    }
-    .avatar-uploader-icon {
+  }
+  .post1 .avatar-uploader-icon {
       font-size: 28px;
       color: #8c939d;
       width: 178px;
       height: 178px;
       line-height: 178px;
       text-align: center;
-    }
-    .avatar {
-      width: 178px;
-      height: 178px;
-      display: block;
-    }
-    .el-tab-pane{
-      width: 900px;
-      height: 530px;
-    }
-    /*消息提示的样式*/
-    .item {
-      margin: 0px;
-    }
-    /*编辑信息框的样式*/
-    .user_info{
-      padding-bottom: 20px;
-      border: 1px solid #dee1e2;
-    }
-    h2{
-      margin: 5px;
-      padding: 10px 20px;
-      border-bottom: 1px solid #dee1e2;            
-    }
-    .i_edit{
-      float: right;
-      font-size: 16px;
-      color: #7ab8ed;
-    }
-    .user_info_form,.user_info_text{
-        padding: 20px;
-    }
+  }
+  .post1 .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+  .post1 .el-tab-pane{
+    width: 900px;
+    height: 530px;
+  }
+  /*消息提示的样式*/
+  .post1 .item {
+    margin: 0px;
+  }
+  /*编辑信息框的样式*/
+  .post1 .user_info{
+    padding-bottom: 20px;
+    border: 1px solid #dee1e2;
+  }
+  .post1 h2{
+    margin: 5px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dee1e2;            
+  }
+  .post1 .i_edit{
+    float: right;
+    font-size: 16px;
+    color: #7ab8ed;
+  }
+  .post1 .user_info_form,.post1 .user_info_text{
+      padding: 20px;
+  }
 
 </style>

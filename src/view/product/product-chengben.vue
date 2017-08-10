@@ -200,34 +200,34 @@
   .post1 .el-form-item .el-input{
     width: 150px;
   }
-  .divider{
+  .post1 .divider{
     width: 900px !important;
     background: #20A0FF;
     color: #fff;
     clear: both;
   }
-  .el-rate{
+  .post1 .el-rate{
     padding-top: 7px;
   }
-  .clear{
+  .post1 .clear{
     clear: both;
     background: red;
   }
-  .span2{
+  .post1 .span2{
     padding-right: 20px;
   }
-  .pane2 li{
+  .post1 .pane2 li{
     margin-bottom: 5px;
     height: 50px;
   }
-  .span3{
+  .post1 .span3{
     margin: 50px 0px 20px 0px;
     width: 900px !important;
     height: 30px;
     background: gray;
     color: #fff;
   }
-  .el-carousel__item h3 {
+  .post1 .el-carousel__item h3 {
       color: #475669;
       font-size: 14px;
       opacity: 0.75;
@@ -235,11 +235,11 @@
       margin: 0;
     }
     
-    .el-carousel__item:nth-child(2n) {
+    .post1 .el-carousel__item:nth-child(2n) {
       background-color: #99a9bf;
     }
     
-    .el-carousel__item:nth-child(2n+1) {
+    .post1 .el-carousel__item:nth-child(2n+1) {
       background-color: #d3dce6;
     }
 </style>

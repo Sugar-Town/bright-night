@@ -309,21 +309,21 @@
     position: absolute;
     width: 1178px;
   }
-  .cum_header{
+  .customerOrder .cum_header{
     font-size: 20px;
     color: #fff;
     background: #13ce66;
     line-height: 39px;
     padding: 9px 25px;
   }
-  .Csearch{
+  .customerOrder .Csearch{
     display: inline-block;
     margin-left: 674px;
   }
-  .Csearch.el-input,.Csearch .el-input__inner {
+  .customerOrder .Csearch.el-input,.customerOrder .Csearch .el-input__inner {
     width: 258px;
   }
-  .el-date-editor.el-input {
+  .customerOrder .el-date-editor.el-input {
     width: 253px;
   }
  

@@ -37,24 +37,24 @@ export default {
     text-decoration: none;
     font-size: 14px;
   }
-  .home {
+  .post .home {
     color: #c5d1de; 
     font-size: 14px;
     font-weight: bold;
   }
-  .home:hover {
+  .post .home:hover {
     color: #48576a;
   }
 
-  .siderBar {
+  .post .siderBar {
     float: left;
     width: 13%;
   }
-  .rightBody {
+  .post .rightBody {
     width: 87%; 
     float:left;
   }
-  .navBar {
+  .post .navBar {
     background: #eef1f6; 
     width:100%; 
     height: 46px;
@@ -63,18 +63,18 @@ export default {
   .post {
     width: 100%;
   }
-  .menu-demo {
+  .post .menu-demo {
     height: 794px;
     min-width: 130px;
     background-color:#324157;
   }
-  .el-submenu .el-menu-item {
+  .post .el-submenu .el-menu-item {
        min-width: 90px; 
   }
-  .el-submenu__title {
+  .post .el-submenu__title {
     color: #c5d1de;
   }
-  .el-submenu__title:hover {
+  .post .el-submenu__title:hover {
     color: #48576a;
   }
 </style>

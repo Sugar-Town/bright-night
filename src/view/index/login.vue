@@ -105,37 +105,37 @@
   .customerVip{
     position: absolute;
   }
-  .log{
+  .customerVip .log{
     background: #D0E9FF;
     width:900px;
     height: 364px;
     margin: 124px 160px;
   }
-  .loginImg{
+  .customerVip .loginImg{
     float: left;
   }
-  .login{
+  .customerVip .login{
     float: left;
   }
-  .login .el-form-item__content {
+  .customerVip .login .el-form-item__content {
     margin-left: 156px;
   }
-  .login.el-input,.login .el-input__inner {
+  .customerVip .login.el-input,.customerVip .login .el-input__inner {
     width: 121%;
   }
-  .login .el-form{
+  .customerVip .login .el-form{
     margin-top: 43px;
   }
-  .sub .el-form-item{
+  .customerVip .sub .el-form-item{
     margin-top: 28px;
   }
-  .login .el-form-item__label {
+  .customerVip .login .el-form-item__label {
     padding: 8px 12px 11px 0;
   }
-  .login .el-form-item__error{
+  .customerVip .login .el-form-item__error{
     margin-left: 29px;
   }
-  .login .el-form-item.is-required .el-form-item__label:before {
+  .customerVip .login .el-form-item.is-required .el-form-item__label:before {
     content: '';
   }
 </style>

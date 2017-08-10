@@ -104,10 +104,10 @@ export default {
   .customerTranfer{
     position: absolute;
   }
-  .myChart{
+  .customerTranfer .myChart{
     margin: 25px 30px;
  }
- .chartPie{
+ .customerTranfer .chartPie{
     margin-top: 50px;
     margin-left: 105px;
  }

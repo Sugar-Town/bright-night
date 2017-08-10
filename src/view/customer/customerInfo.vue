@@ -359,58 +359,58 @@
     /*background:#FEF5E7;*/
     width: 1176px;
   }
-  .el-breadcrumb{
+  .customerInfo .el-breadcrumb{
     height: 58px;
     line-height: 58px;
   }
   /*查询*/
-  .cum_search{
+  .customerInfo .cum_search{
     margin-left: 20px;
   }
-  .wrapper span{
+  .customerInfo .wrapper span{
     color:#fff;
   }
-  .ads
+  .customerInfo .ads
   {
     display: inline;   
   }
-  .ads .el-input{
+  .customerInfo .ads .el-input{
     width: 22%; 
     margin-right: 26px 
   }
- .el-checkbox__input.is-checked .el-checkbox__inner {
+ .customerInfo .el-checkbox__input.is-checked .el-checkbox__inner {
     background-color: #ccc; 
     border-color: #ccc;
   }
-  .ads .el-button--success {
+  .customerInfo .ads .el-button--success {
     background: #75bd5a;
     border: 1px solid #85ae74;
   }
-  .el-select-dropdown__item.selected {
+  .customerInfo .el-select-dropdown__item.selected {
     background-color: #ccc;
 
   }
-  .el-select-dropdown__list {
+  .customerInfo .el-select-dropdown__list {
     padding:0; 
   }
   /*客户信息表格*/
-  .cum_table .el-button{
+  .customerInfo .cum_table .el-button{
     background: #dfe6ec;
   }
-  .add_btn{
+  .customerInfo .add_btn{
     float: right;
     margin-bottom: 10px;
   }
-  .tab_btn .el-button{
+  .customerInfo .tab_btn .el-button{
     background: #fff;
     margin-left: 20px;
   }
-  .left_btn{
+  .customerInfo .left_btn{
     float: left;
     margin-top: 10px;
     margin-left: 20px;
   }
-  .right_btn{
+  .customerInfo .right_btn{
     float: right;
     margin-top: 10px;
   }
