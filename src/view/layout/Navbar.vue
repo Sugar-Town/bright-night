@@ -34,7 +34,7 @@
     },
     methods: {
       logout() {
-        this.$router.push("/index/readme");
+        this.$router.push("/");
       }
     }
   };

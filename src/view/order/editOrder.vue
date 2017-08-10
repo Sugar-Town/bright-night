@@ -274,7 +274,7 @@
         this.showRemarkDialog = true;
       }, 
       goBack() {
-        this.$router.push('/order/orderAccount'); 
+        this.$router.push('/index/order/orderAccount'); 
       }
     }
   };

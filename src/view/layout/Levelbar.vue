@@ -25,7 +25,7 @@
           let matched = this.$route.matched.filter(item => item.name);
           const first = matched[0];
           if (first && (first.name !== '首页' || first.path !== '')) {
-            matched = [{ name: '首页', path: '/' }].concat(matched)
+            matched = [{ name: '首页', path: '/index/readme' }].concat(matched)
           }
           this.levelList = matched;
         }
