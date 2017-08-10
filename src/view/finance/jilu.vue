@@ -348,6 +348,7 @@
 
 
 <script>
+    import {api} from '@/global/api'
     export default {
       data() {
         return {

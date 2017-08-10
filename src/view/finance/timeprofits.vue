@@ -86,6 +86,7 @@
   </div>
 </template>
 <script>
+  import {api} from '@/global/api'
   export default {
     data() {
       return {
@@ -178,7 +179,7 @@
         })
       },
 
-      //获取入款单表格数据
+      //获取出款单表格数据
       getData2(){
         this.$http.get(api.cwData_out,{params:{'key':this.jilu_input}}).then(function(response){ 
           // console.log(response);
