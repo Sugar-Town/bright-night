@@ -1,9 +1,5 @@
 <template>
   <div class="post">
-    <!-- <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">产品管理</el-breadcrumb-item>
-      <el-breadcrumb-item>产品属性管理</el-breadcrumb-item>
-    </el-breadcrumb> -->
     <div class="post1">
     <div class="one">
       <el-tabs type="border-card">
@@ -106,8 +102,16 @@
                  </el-option>
                </el-select>
              </el-form-item>
+
              <el-form-item label="配送地址">
-               <el-cascader :options="options2" @active-item-change="handleItemChange" :props="props" v-model="ruleForm.address"></el-cascader>
+               <el-select v-model="ruleForm.address" placeholder="请选择">
+                 <el-option
+                   v-for="item in options2"
+                   :key="item.key"
+                   :label="item.value"
+                   :value="item.key">
+                 </el-option>
+               </el-select>
              </el-form-item>
              <el-form-item label="即时配送">
                <el-switch on-text="" off-text="" v-model="ruleForm.delivery"></el-switch>
@@ -194,8 +198,7 @@
                ]
              },
              options2: [
-               { label: '江苏', cities: [] }, 
-               { label: '浙江', cities: [] }
+               {key:"01", value:"江苏"},{key:"01", value:"浙江"}
                ],
              props: {
                value: 'label',

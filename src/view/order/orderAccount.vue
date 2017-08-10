@@ -74,7 +74,7 @@
         <el-button class="filter-item" type="primary" v-waves>已发货</el-button>
         <el-button class="filter-item" type="primary" v-waves>成功的订单</el-button>
         <el-button class="filter-item" type="primary" v-waves>关闭的订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves icon="edit" v-popover:sendGoodsPopover @click="handleSendAll">批量发货</el-button>
+        <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleSendAll">批量发货</el-button>
         <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleDelAll">批量删除</el-button>
       </el-row>
     </div>  
