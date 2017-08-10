@@ -46,13 +46,15 @@ export default {
     color: #48576a;
   }
 
-  .post .siderBar {
-    float: left;
+  .post>.siderBar {
+    /*float: left;*/
+    position: absolute;
     width: 13%;
+    z-index: 999
   }
-  .post .rightBody {
+  .post>.rightBody {
     width: 87%; 
-    float:left;
+    float:right;
   }
   .post .navBar {
     background: #eef1f6; 

@@ -4,7 +4,7 @@
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
           <el-tab-pane label="入款单" name="first">
            <div class="jilu_news">
-           <el-form :model="$refs.ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+           <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                   <!-- 日期 -->
                   <div class="jilu_top">
                     <div class="block">
@@ -372,72 +372,6 @@
             jilu_part:'',
             jilu_get: ''
           },
-
-
-          // tableData: [{
-          //   jilu_date: '2016-05-03',
-          //   jilu_input: '555',
-          //   pay_name: '上海',
-          //   do_name: '普陀区',
-          //   region: '上海市普陀区金沙江路 1518 弄',
-          //   jilu_add: '200333',
-          //   jilu_part: '5555',
-          //   jilu_get: 4444
-          // }, {
-          //   jilu_date: '2016-05-02',
-          //   jilu_input: '999',
-          //   pay_name: '上海',
-          //   do_name: '普陀区',
-          //   region: '上海市普陀区金沙江路 1518 弄',
-          //   jilu_add: '200333',
-          //   jilu_part: '5555',
-          //   jilu_get: 4444
-          // }, {
-          //   jilu_date: '2016-05-04',
-          //   jilu_input: '54564',
-          //   pay_name: '上海',
-          //   do_name: '普陀区',
-          //   region: '上海市普陀区金沙江路 1518 弄',
-          //   jilu_add: '200333',
-          //   jilu_part: '5555',
-          //   jilu_get: 4444
-          // }, {
-          //   jilu_date: '2016-05-01',
-          //   jilu_input: '5656',
-          //   pay_name: '上海',
-          //   do_name: '普陀区',
-          //   region: '上海市普陀区金沙江路 1518 弄',
-          //   jilu_add: '200333',
-          //   jilu_part: '5555',
-          //   jilu_get: 4444
-          // }, {
-          //   jilu_date: '2016-05-08',
-          //   jilu_input: '15645614',
-          //   pay_name: '上海',
-          //   do_name: '普陀区',
-          //   region: '上海市普陀区金沙江路 1518 弄',
-          //   jilu_add: '200333',
-          //   jilu_part: '5555',
-          //   jilu_get: 4444
-          // }, {
-          //   jilu_date: '2016-05-06',
-          //   jilu_input: '25626',
-          //   pay_name: '上海',
-          //   do_name: '普陀区',
-          //   region: '上海市普陀区金沙江路 1518 弄',
-          //   jilu_add: '200333',
-          //   jilu_part: '5555',
-          //   jilu_get: 4444
-          // }, {
-          //   jilu_date: '2016-05-07',
-          //   jilu_input: '26556',
-          //   pay_name: '上海',
-          //   do_name: '普陀区',
-          //   region: '上海市普陀区金沙江路 1518 弄',
-          //   jilu_add: '200333',
-          //   jilu_part: '5555',
-          //   jilu_get: 4444
-          // }],
 
           tableData: [{
             jilu_date: '',

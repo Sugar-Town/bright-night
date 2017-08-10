@@ -2,7 +2,7 @@
   <div class="app-container calendar-list-container">
     <div class="filter-container">
       <el-row>
-        <el-col :span="10">
+        <el-col :span="8">
           <el-button-group>
             <el-button size="small" type="success" icon="plus">新增</el-button>
             <el-button size="small" type="info" icon="arrow-up">上架</el-button>
@@ -10,7 +10,7 @@
             <el-button size="small" type="danger" icon="delete">删除</el-button>
           </el-button-group>
         </el-col>
-        <el-col :span="14">
+        <el-col :span="16">
           <el-input @keyup.enter.native="handleFilter" style="width: 230px;" class="filter-item"
                     placeholder="请输入商品名称/编码/规格/关键字" v-model="productListQuery.title" size="small">
           </el-input>

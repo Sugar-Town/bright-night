@@ -25,7 +25,6 @@
                  <router-link to="/index/order/index"><el-menu-item index="3-1">订单报表</el-menu-item></router-link>
                 <router-link to="/index/order/orderAccount"><el-menu-item index="3-2">所有订单</el-menu-item></router-link>
                 <router-link to="/index/order/orderColleague"><el-menu-item index="3-3">所属员工</el-menu-item></router-link>
-                <router-link to="/index/order/dayThree"><el-menu-item index="3-4">dayThree</el-menu-item></router-link>
             </el-submenu>
             <el-submenu index="4">
               <template slot="title"><i class="el-icon-menu"></i>财务管理<i class="el-submenu__icon-arrow el-icon-caret-bottom"></i></template>
@@ -61,4 +60,7 @@
 </script>
 
 <style>
+  .home {
+    
+  }
 </style>
