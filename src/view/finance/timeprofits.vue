@@ -262,43 +262,43 @@
   }
 
   /*总利润*/
-  .profit{
+  .timeprofits .profit{
     /*margin-top: 60px;*/
     margin-bottom: 86px;
   }
 
-  .profit h3{
+  .timeprofits .profit h3{
     float: left;
     margin-left: 126px;
   }
 
-  .profit .el-input{
+  .timeprofits .profit .el-input{
       width: 26%;
       float: left;
       margin-left: 20px;
   }
 
   /*搜索*/
-  .middle{
+  .timeprofits .middle{
     height: 82px;
   }
 
-  .search{
+  .timeprofits .search{
     float: left;
   }
 
-  .btn_search{
+  .timeprofits .btn_search{
     margin-left: 20px;
     float: left;
   }
 
-  .btn_recovery{
+  .timeprofits .btn_recovery{
     margin-left: 26px !important;
     float: left;
   }
 
   /*查看盈利情况*/
-  .graph{
+  .timeprofits .graph{
     /*margin-bottom: 42px;*/
     float: left;
     margin-left: 160px;

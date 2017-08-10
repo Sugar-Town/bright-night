@@ -977,26 +977,26 @@
     margin-bottom: 30px;
   }
 
-  .jilu_news .el-form-item{
+  .jilu .jilu_news .el-form-item{
     float: left;
   }
 
-  .jilu_news .jilu_one{
+  .jilu .jilu_news .jilu_one{
     margin-left: 30px;
     margin-bottom: 30px;
   }
   
 
-  .jilu_news .jilu_one .el-input{
+  .jilu .jilu_news .jilu_one .el-input{
     width: 16%;
   }
 
-  .jilu_news .jilu_two{
+  .jilu .jilu_news .jilu_two{
     margin-left: 20px;
   }
 
   /*记录表格*/
-  .jilu_table{
+  .jilu .jilu_table{
     width: 100%;
     margin-top: 70px;
     height:100%;
@@ -1006,29 +1006,29 @@
 
 
   /*编辑弹出框*/
-  .Modals .block{
+  .jilu .Modals .block{
       width: 100%;
       margin-bottom: 20px;
   }
 
-  .Modals .Modals_one{
+  .jilu .Modals .Modals_one{
       margin-top: 70px;
   }
 
-  .Modals .Modals_two{
+  .jilu .Modals .Modals_two{
       margin-left: 20px;
   }
 
-  .Modals .Modals_two .el-input{
+  .jilu .Modals .Modals_two .el-input{
     width: 86%;
     margin-bottom: 27px;
   }
 
-  .Modals .el-form-item__content{
+  .jilu .Modals .el-form-item__content{
     z-index: 1;
   }
 
-  .Modals .el-date-editor.el-input{
+  .jilu .Modals .el-date-editor.el-input{
     z-index: 2;
   }
 
