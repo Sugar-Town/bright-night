@@ -4,7 +4,7 @@
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
           <el-tab-pane label="入款单" name="first">
            <div class="jilu_news">
-           <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+           <el-form :model="$refs.ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                   <!-- 日期 -->
                   <div class="jilu_top">
                     <div class="block">
