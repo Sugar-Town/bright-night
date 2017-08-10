@@ -15,7 +15,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="middlebody">
+		<div class="middle">
 			<ul v-for="forcast in forecasts" @click="showEachday(forcast)">
 				<li>{{ forcast.type }}</li>
 				<li><img :src="forcast.img"></li>
@@ -29,7 +29,6 @@
 	</div>
 </template>
 <script>
-	import {api} from '@/global/api'
 	export default {
 	    data() {
 	        return {
@@ -49,7 +48,7 @@
 		methods: {
 			getData: function() {
 				let innerThis = this;
-				this.$http.get(api.weather_mini).then(function(response) {
+				this.$http.get('.././static/dataJson/weather_mini.json').then(function(response) {
 					innerThis.forecasts = response.data.data.forecast;
 				}, function(response) {
 					alert("请求失败了");
@@ -139,7 +138,7 @@
 		font-size: 20px;
 	}
 	
-	.middlebodymiddlebody {
+	.middle {
 		width: 920px;
 		height: 510px;
 		text-align: center;
@@ -147,7 +146,7 @@
 		background: lightskyblue;
 	}
 	
-	.middlebody ul {
+	.middle ul {
 		width: 183px;
 		height: 510px;
 		float: left;
@@ -156,7 +155,7 @@
 		cursor: pointer;
 	}
 	
-	.middlebody ul li {
+	.middle ul li {
 		margin-top: 40px;
 	}
 </style>

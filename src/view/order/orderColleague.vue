@@ -2,7 +2,7 @@
   <div class="app-container">
     <!-- 搜索条件 -->
     <div class="filter-container">
-      <el-input style="width: 200px;" class="filter-item" placeholder="请输入员工编号" v-model="listQuery.orderId">
+      <el-input style="width: 200px;" class="filter-item" placeholder="请输入员工编号" v-model="orderIdtemp">
       </el-input>
 
       <el-input style="width: 200px;" class="filter-item" placeholder="请输入员工姓名" v-model="listQuery.orderId">
@@ -90,6 +90,7 @@
           pageSize: 10,
           orderId: '',   
         },
+        orderIdtemp: '',
         multipleSelection: [],  //批量删除
         orderStatus: [{label: '待付款', value: 1}, {label: '待发货', value: 2}, {label: '已发货', value: 3}, {label: '已取消', value: 4}, {label: '已完成', value: 5}],
       }
@@ -116,8 +117,8 @@
         getList: function() {
         	var vm = this;
 	        //在控制台输出查询条件
-	        console.log(JSON.stringify(vm.listQuery));
-	        this.$http.get(api.orderColleague ,{params: vm.listQuery}).then(function(response) {
+	        console.log(JSON.stringify("=============",vm.orderIdtemp));
+	        this.$http.get(api.orderColleague ,{params: vm.orderIdtemp}).then(function(response) {
 	            var data = response.body;
 	            vm.list = data.data.data;
 	            vm.listQuery.currPage = data.data.currPage;

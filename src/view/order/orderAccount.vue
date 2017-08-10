@@ -202,7 +202,7 @@
       getList: function() {
         var vm = this;
         //在控制台输出查询条件
-        console.log(JSON.stringify(vm.listQuery));
+        console.log("所有订单请求订单信息json——————",JSON.stringify(vm.listQuery));
         this.$http.get(api.orderInfo,{params: vm.listQuery}).then(function(response) {
             var data = response.body;
             vm.list = data.data.data;
