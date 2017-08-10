@@ -290,9 +290,8 @@
 
          },
          //操作中的单个删除
-         handleDelete(index, row) {
-            this.delIndex = index;
-            console.log("单个删除的index：",this.delIndex);
+         handleDelete(index, row) {  
+            console.log("单个删除的index：",index);
             console.log("单个删除的row：",row);
              // console.log(index, row);
             this.tableData3.splice(index,1);//
@@ -301,7 +300,6 @@
          //批量删除
          handleDelAll(){
             let vm = this;
-            // console.log("批量删除的index：",vm.delIndex);
             console.log("批量删除的row：",vm.multipleSelection);//对象数组
             //实际开发，不需要使用splice，我们只需要对 vm.multipleSelection 进行for循环，然后拿到每一条id，拼接成一个数组传给接口即可，例如[1,3,5]
             for(var i = 0; i < vm.multipleSelection.length; i++){
