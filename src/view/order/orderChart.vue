@@ -5,7 +5,7 @@
 <script>
   import echarts from 'echarts';
   require('echarts/theme/macarons'); // echarts 主题
-
+  import {api} from '@/global/api';
   export default {
     props: {
       className: {
@@ -23,8 +23,12 @@
     },
     data() {
       return {
-        chart: null
+        chart: null,
+        echartsData: null,
       };
+    },
+    created() {
+      this.getDataList();
     },
     mounted() {
       this.initChart();
@@ -37,7 +41,18 @@
       this.chart = null;
     },
     methods: {
+      getDataList() {
+        var vm = this;
+          //在控制台输出查询条件
+          this.$http.get(api.echartsJson).then(function(response) {
+              vm.echartsData = response.body.data.data; 
+              console.log(vm.echartsData);
+            }, function(response) {
+              alert("请求失败了");
+          })
+      },
       initChart() {
+        var vm = this;
         this.chart = echarts.init(this.$el, 'macarons');
 
         this.chart.setOption({

@@ -68,12 +68,12 @@
     </div>  
     <div class="top-distance">
       <el-row>
-        <el-button class="filter-item" type="primary" v-waves>全部订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves>等待买家付款订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves>等待发货</el-button>
-        <el-button class="filter-item" type="primary" v-waves>已发货</el-button>
-        <el-button class="filter-item" type="primary" v-waves>成功的订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves>关闭的订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleFilter">全部订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleWaitedPay">等待买家付款订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleWaitedSend">等待发货</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleSended">已发货</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleSuccess">成功的订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleClose">关闭的订单</el-button>
         <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleSendAll">批量发货</el-button>
         <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleDelAll">批量删除</el-button>
       </el-row>
@@ -198,7 +198,7 @@
       vm.getList();
     },
     methods: {
-      //获取列表数据
+      //获取列表数据, 查看全部订单
       getList: function() {
         var vm = this;
         //在控制台输出查询条件
@@ -212,8 +212,74 @@
             vm.listLoading = false;   
           }, function(response) {
             alert("请求失败了");
-          })
-        },
+        })
+      },
+      //handleWaitedPay handleWaitedSend handleSuccess handleClose
+      //查看等待买家付款订单
+      handleWaitedPay: function() {
+        var vm = this;
+        this.$http.get(api.waitedPay,{params: vm.listQuery}).then(function(response) {
+            var data = response.body;
+            vm.list = data.data.data;
+            vm.listQuery.currPage = data.data.currPage;
+            vm.listQuery.pageSize = data.data.pageSize;
+            vm.total = data.data.total; 
+          }, function(response) {
+            alert("请求失败了");
+        })
+      },
+      //查看等待发货订单
+      handleWaitedSend: function() {
+        var vm = this;
+        this.$http.get(api.waitedSend,{params: vm.listQuery}).then(function(response) {
+            var data = response.body;
+            vm.list = data.data.data;
+            vm.listQuery.currPage = data.data.currPage;
+            vm.listQuery.pageSize = data.data.pageSize;
+            vm.total = data.data.total; 
+          }, function(response) {
+            alert("请求失败了");
+        })
+      },
+      //查看已发货发货订单
+      handleSended: function() {
+        var vm = this;
+        this.$http.get(api.sended,{params: vm.listQuery}).then(function(response) {
+            var data = response.body;
+            vm.list = data.data.data;
+            vm.listQuery.currPage = data.data.currPage;
+            vm.listQuery.pageSize = data.data.pageSize;
+            vm.total = data.data.total; 
+          }, function(response) {
+            alert("请求失败了");
+        })
+      },
+      //查看已完成订单
+      handleSuccess: function() {
+        var vm = this;
+        this.$http.get(api.success,{params: vm.listQuery}).then(function(response) {
+            var data = response.body;
+            vm.list = data.data.data;
+            vm.listQuery.currPage = data.data.currPage;
+            vm.listQuery.pageSize = data.data.pageSize;
+            vm.total = data.data.total; 
+          }, function(response) {
+            alert("请求失败了");
+        })
+      },
+      //查看已关闭订单
+      handleClose: function() {
+        var vm = this;
+        this.$http.get(api.close,{params: vm.listQuery}).then(function(response) {
+            var data = response.body;
+            vm.list = data.data.data;
+            vm.listQuery.currPage = data.data.currPage;
+            vm.listQuery.pageSize = data.data.pageSize;
+            vm.total = data.data.total; 
+          }, function(response) {
+            alert("请求失败了");
+        })
+      },
       //详情
       handleEdit(index,row){
         var vm = this;

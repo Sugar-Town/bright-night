@@ -148,7 +148,7 @@
             var vm = this;
             console.log('批量删除选择的row：',vm.multipleSelection);
         },
-        //搜索
+        //搜索, 高级搜索
         handleFilter() {
         	this.getList();
         },

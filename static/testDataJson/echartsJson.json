@@ -1,0 +1,17 @@
+{
+  "resultCode": "0",
+  "resultMsg": "",
+  "data": {
+    "currPage": 2,
+    "total": 88,
+    "pageSize": 10,
+    "collectionMoney": 10,
+    "data": [
+      { "value": 320, "name": "已完成" },
+      { "value": 240, "name": "待付款" },
+      { "value": 149, "name": "待发货" },
+      { "value": 100, "name": "已发货" },
+      { "value": 599, "name": "已取消" }
+    ]
+  }
+}

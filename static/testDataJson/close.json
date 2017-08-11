@@ -1,0 +1,111 @@
+{
+  "resultCode": "0",
+  "resultMsg": "",
+  "data": {
+    "currPage": 2,
+    "total": 88,
+    "pageSize": 10,
+    "collectionMoney": 10,
+    "data": [
+      {
+        "orderId": "1100000",
+        "goods": "孔明灯",
+        "realName": "家要",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "33.9",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1200001",
+        "goods": "孔明灯",
+        "realName": "雅茵",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "9.9",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1300002",
+        "goods": "孔明灯",
+        "realName": "富华",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "88.9",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1400003",
+        "goods": "孔明灯",
+        "realName": "钰萍",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "99.9",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1500004",
+        "goods": "孔明灯",
+        "realName": "洁莹",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "78.9",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1600005",
+        "goods": "孔明灯",
+        "realName": "碧霞",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "77.9",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1700006",
+        "goods": "孔明灯",
+        "realName": "雪梅",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "77.9",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1800007",
+        "goods": "孔明灯",
+        "realName": "莜莜",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "45.68",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      },
+      {
+        "orderId": "1900008",
+        "goods": "孔明灯",
+        "realName": "橙橙",
+        "phone": "1342567890",
+        "orderDay": "2017-8-1",
+        "orderNum": "10",
+        "money": "22.34",
+        "collectionMoney": 10,
+        "orderStatus": 4
+      }
+    ]
+  }
+}

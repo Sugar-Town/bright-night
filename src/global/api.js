@@ -26,5 +26,12 @@ export const api = {
             'sale':url.staticPath+'dataJson/sale.json',   
             'userInfo':url.staticPath+'dataJson/userInfo.json',
             'userInfo2':url.staticPath+'dataJson/userInfo2.json',   
-            'weather_mini':url.staticPath+'dataJson/weather_mini.json'  
+            'weather_mini':url.staticPath+'dataJson/weather_mini.json',
+            'echartsJson':url.staticPath+'testDataJson/echartsJson.json',  
+
+            'close':url.staticPath+'testDataJson/close.json',
+            'sended':url.staticPath+'testDataJson/sended.json',
+            'success':url.staticPath+'testDataJson/success.json', 
+            'waitedPay':url.staticPath+'testDataJson/waitedPay.json',
+            'waitedSend':url.staticPath+'testDataJson/waitedSend.json'
     }
