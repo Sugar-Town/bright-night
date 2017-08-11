@@ -18,7 +18,7 @@
       <h3>总利润：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¥</h3><el-input v-model="profits"></el-input>
       </div>
 
-      <div class="middle">
+      <div class="t_middle">
       <!-- 搜索 -->
       <div class="search">
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
@@ -290,7 +290,7 @@
   }
 
   /*搜索*/
-  .timeprofits .middle{
+  .timeprofits .t_middle{
     height: 82px;
   }
 
