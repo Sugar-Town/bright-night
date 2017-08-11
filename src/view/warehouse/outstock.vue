@@ -224,15 +224,14 @@ import Vue from 'vue'
       },
       //删除提交
       handleDeleteSubmit(){
-        var vm = this;
+        var vm = this;          var flag=0;
         for(var outtablelist of vm.OuttableList){
-          var flag=0;
         if(vm.temp.PaymentID==outtablelist.PaymentID){
           var index=vm.OuttableList.indexOf(outtablelist)
             console.log("当前索引号",index);
             vm.OuttableList.splice(index,1)
             vm.temp=JSON.parse(JSON.stringify(vm.temp));
-            flag=1;
+            flag++;
         }         
       } 
       if (flag==0) {alert("这个收款账户编号不存在，请重新输入")};
