@@ -54,14 +54,14 @@ import DayThree from '@/view/order/dayThree'
 
 export default new Router({
   routes: [
+    {
+      path: '/',
+      redirect: '/login',
+    },
     { 
       path: '/login', 
       component: Login, 
       name: '登录' 
-    },
-    {
-      path: '/',
-      redirect: '/login',
     },
     { 
       path: '/index',
