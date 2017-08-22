@@ -5,7 +5,7 @@
       <el-input style="width: 200px;" class="filter-item" placeholder="请输入订单号" v-model="listQuery.orderId">
       </el-input>
 
-      <el-select clearable class="filter-item" style="width: 130px" v-model="listQuery.type" placeholder="类型">
+      <el-select clearable class="filter-item" style="width: 130px;" v-model="listQuery.type" placeholder="类型">
         <el-option v-for="item in  orderStatus" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
@@ -56,38 +56,33 @@
           </el-select>
       
           <el-form-item>
-            <el-button type="primary" size="small" @click="handleFilter">确定</el-button>
+            <el-button type="primary" size="small" @click="handleAdvanceSearch">确定</el-button>
             <el-button size="small" @click="showAdvancedSearchPopover = false">取消</el-button>
           </el-form-item>
         </el-form>
       </el-popover>
 
-      <el-button class="filter-item" type="primary" v-waves icon="search" @click="handleFilter">搜索</el-button>
+      <el-button class="filter-item" type="primary" v-waves icon="search" @click="handleSearch" size="small">搜索</el-button>
       <el-button class="filter-item" type="primary" v-waves icon="search" v-popover:advancedSearchPopover size="small">高级搜索</el-button>
-      <el-button class="filter-item" type="primary" v-waves icon="document">导出</el-button>    
-    </div>  
+      <el-button class="filter-item" type="primary" v-waves icon="document" size="small" @click="handleDownload">导出</el-button>    
+    </div> 
+    <!--订单状态按钮--> 
     <div class="top-distance">
       <el-row>
-        <el-button class="filter-item" type="primary" v-waves @click="handleFilter">全部订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves @click="handleWaitedPay">等待买家付款订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves @click="handleWaitedSend">等待发货</el-button>
-        <el-button class="filter-item" type="primary" v-waves @click="handleSended">已发货</el-button>
-        <el-button class="filter-item" type="primary" v-waves @click="handleSuccess">成功的订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves @click="handleClose">关闭的订单</el-button>
-        <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleSendAll">批量发货</el-button>
-        <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleDelAll">批量删除</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleFilter" size="small">全部订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleWaitedPay" size="small">等待买家付款订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleWaitedSend" size="small">等待发货</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleSended" size="small">已发货</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleSuccess" size="small">成功的订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves @click="handleClose" size="small">关闭的订单</el-button>
+        <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleSendAll" size="small">批量发货</el-button>
+        <el-button class="filter-item" type="primary" v-waves icon="edit" @click="handleDelAll" size="small">批量删除</el-button>
       </el-row>
     </div>  
     <!-- 表格 -->
     <el-table ref="multipleTable" @selection-change="handleSelectionChange" :data="list" v-loading.body="listLoading" element-loading-text="拼命加载中" border fit highlight-current-row  >
          <el-table-column type="selection" width="55">
          </el-table-column>
-
-          <!-- <el-table-column align="center" label='序号' width="90">
-            <template scope="scope">
-              {{scope.$index}}
-            </template>
-          </el-table-column> -->
 
           <el-table-column label="订单编号">
             <template scope="scope">
@@ -140,7 +135,7 @@
 
             <el-table-column align="center"  label="操作" width="150">
                 <template scope="scope">
-                   <el-button class="edit" size="small" v-waves @click="handleEdit(scope.$index, scope.row)">详情</el-button>
+                   <el-button class="edit" size="small" v-waves @click="handleEdit(scope.$index, scope.row)">发货</el-button>
                    <el-button class="delete" size="small" v-waves type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                 </template>
             </el-table-column>
@@ -177,7 +172,7 @@
         },
         orderStatus: [{label: '待付款', value: 1}, {label: '待发货', value: 2}, {label: '已发货', value: 3}, {label: '已取消', value: 4}, {label: '已完成', value: 5}],
         dialogFormVisible: false,
-        multipleSelection: []  //批量删除
+        multipleSelection: []  //批量发货
       }
     },
     filters: {
@@ -199,7 +194,7 @@
     },
     methods: {
       //获取列表数据, 查看全部订单
-      getList: function() {
+      getList () {
         var vm = this;
         //在控制台输出查询条件
         console.log("所有订单请求订单信息json——————",JSON.stringify(vm.listQuery));
@@ -216,7 +211,7 @@
       },
       //handleWaitedPay handleWaitedSend handleSuccess handleClose
       //查看等待买家付款订单
-      handleWaitedPay: function() {
+      handleWaitedPay () {
         var vm = this;
         this.$http.get(api.waitedPay,{params: vm.listQuery}).then(function(response) {
             var data = response.body;
@@ -229,7 +224,7 @@
         })
       },
       //查看等待发货订单
-      handleWaitedSend: function() {
+      handleWaitedSend () {
         var vm = this;
         this.$http.get(api.waitedSend,{params: vm.listQuery}).then(function(response) {
             var data = response.body;
@@ -242,7 +237,7 @@
         })
       },
       //查看已发货发货订单
-      handleSended: function() {
+      handleSended () {
         var vm = this;
         this.$http.get(api.sended,{params: vm.listQuery}).then(function(response) {
             var data = response.body;
@@ -255,7 +250,7 @@
         })
       },
       //查看已完成订单
-      handleSuccess: function() {
+      handleSuccess () {
         var vm = this;
         this.$http.get(api.success,{params: vm.listQuery}).then(function(response) {
             var data = response.body;
@@ -268,7 +263,7 @@
         })
       },
       //查看已关闭订单
-      handleClose: function() {
+      handleClose () {
         var vm = this;
         this.$http.get(api.close,{params: vm.listQuery}).then(function(response) {
             var data = response.body;
@@ -280,50 +275,73 @@
             alert("请求失败了");
         })
       },
-      //详情
+      //单个发货和批量发货跳转同一个页面
       handleEdit(index,row){
-        var vm = this;
-        console.log('编辑的row：',index,'-----',row);
-        //跳页面进行修改
-        //this.$router.push('/example/form'); 
-        this.$router.push( { path: '/index/order/editOrder', query: { id: row.orderId } } ); //带参跳转
+        var vm = this
+        vm.handleSendAll()
       },
       //单个删除
       handleDelete(index,row){
-          var vm = this;
-          console.log('单个删除选择的row：',index,'-----',row);
-          //前端删除。
-          vm.list.splice(index,1)
+        var vm = this;
+        vm.handleDelAll()
+        //console.log('单个删除选择的row：',index,'-----',row);
+        //前端删除。
+        //vm.list.splice(index,1)
       },
       //批量删除
       handleDelAll(){
-          var vm = this;
-          console.log('批量删除选择的row：',vm.multipleSelection);
+        var vm = this;
+        vm.$message({
+          showClose: true,
+          message: '不能删除订单！',
+          type: 'success'
+        });
+        //console.log('批量删除选择的row：',vm.multipleSelection);
       },
       //批量发货
       handleSendAll() {
         var vm = this;
+        if(vm.multipleSelection.length == 0){
+          // 没有选择发货内容弹出请选择提示语
+          vm.$message({
+            showClose: true,
+            message: '请选择发货商品！',
+            type: 'success'
+          });
+          return
+        }
         console.log('批量发货选择的row：',vm.multipleSelection);
+        //跳页面进行发货
+        //this.$router.push('/example/form');
         this.$router.push('/index/order/editOrder' ); //带参跳转
       },
-      //搜索
+      //查看全部订单
       handleFilter() {
         this.showAdvancedSearchPopover = false;
         this.getList();
       },
-      //高级搜索
-      handleCheckAllStatusChange(event) {
-        let statuss = [];
-        for (let tag of this.orderStatus) {
-          statuss.push(tag.value);
-        }
-        this.checkedStatuss = event.target.checked ? statuss : [];
-        this.isIndeterminateStatus = false;
+      //搜索
+      handleSearch () {
+        var vm = this;
+        vm.$message({
+          showClose: true,
+          message: '搜索信息：订单编号：' + vm.listQuery.orderId + ' ;  订单类型编号：' + vm.listQuery.type,
+          type: 'success'
+        });
       },
-      handleCheckedStatusChange(value) {
-        let checkedCount = value.length;
-        this.checkAllStatus = checkedCount === this.orderStatus.length;
-        this.isIndeterminateStatus = checkedCount > 0 && checkedCount < this.orderStatus.length;
+      //高级搜索
+      handleAdvanceSearch () {
+        var vm = this;
+        this.$http.get(api.success,{params: vm.listQuery}).then(function(response) {
+            var data = response.body;
+            vm.list = data.data.data;
+            vm.listQuery.currPage = data.data.currPage;
+            vm.listQuery.pageSize = data.data.pageSize;
+            vm.total = data.data.total; 
+            this.showAdvancedSearchPopover = false;
+          }, function(response) {
+            alert("请求失败了");
+        })
       },
       //操作分页
       handleSizeChange(val) {
@@ -332,27 +350,27 @@
       },
       //操作分页
       handleCurrentChange(val) {
-        //console.log('--------',val)
         this.listQuery.currPage = val;
         this.getList();
       },
       handleSelectionChange(val) {
           this.multipleSelection = val;
       },
-      // handleDownload() {
-      //   var vm = this;
-      //   require.ensure([], () => {
-      //     const { export_json_to_excel } = require('vendor/Export2Excel');
-      //     const tHeader = ['订单编号', '宝贝', '单价', '买家', '预定日期', '预定数量', '实收款', '订单状态'];
-      //     const filterVal = ['orderId', 'goods', 'money', 'realName', 'orderDay', 'orderNum', 'collectionMoney', 'orderStatus'];
-      //     const list = vm.list;
-      //     const data = vm.formatJson(filterVal, list);
-      //     export_json_to_excel(tHeader, data, '导出的列表excel');
-      //   })
-      // },
-      // formatJson(filterVal, jsonData) {
-      //   return jsonData.map(v => filterVal.map(j => v[j]))
-      // }
+      //导出
+      handleDownload() {
+        var vm = this;
+        require.ensure([], () => {
+          const { export_json_to_excel } = require('../../vendor/Export2Excel');
+          const tHeader = ['订单编号', '宝贝', '单价', '买家', '预定日期', '预定数量', '实收款', '订单状态'];
+          const filterVal = ['orderId', 'goods', 'money', 'realName', 'orderDay', 'orderNum', 'collectionMoney', 'orderStatus'];
+          const list = vm.list;
+          const data = vm.formatJson(filterVal, list);
+          export_json_to_excel(tHeader, data, '导出的列表excel');
+        })
+      },
+      formatJson(filterVal, jsonData) {
+        return jsonData.map(v => filterVal.map(j => v[j]))
+      }
     }
   };
 </script>

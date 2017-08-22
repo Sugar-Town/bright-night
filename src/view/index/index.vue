@@ -49,11 +49,11 @@ export default {
   .post>.siderBar {
     /*float: left;*/
     position: absolute;
-    width: 13%;
+    width: 12%;
     z-index: 999
   }
   .post>.rightBody {
-    width: 87%; 
+    width: 88%; 
     float:right;
   }
   .post .navBar {

@@ -81,6 +81,7 @@
           </el-col>
         </el-row>
       </div>
+      <!--订单商品展示表格-->
       <div class="table-container">
         <el-table ref="goodTable" :data="goodList" element-loading-text="拼命加载中" fit highlight-current-row style="width: 98%;"
                   show-summary :summary-method="getSummaries">
@@ -112,6 +113,7 @@
           </el-table-column>
         </el-table>
       </div>
+      <!--收货人信息展示-->
       <div class="receive-container">
         <el-row class="receive-container-item">
           <el-col>
@@ -187,18 +189,6 @@
         default: 10023789420012
       }
     },
-    computed: {},
-    created() {
-      //this.getBaseInfo();
-    },
-    activated() {
-      // 当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行
-      // 数据加载应该放在此处
-    },
-    deactivated() {
-      // 当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行
-      // 数据加载应该放在此处
-    },
     filters: {
       statusFilter(status) {
         const statusMap = ['danger', 'success'];
@@ -211,12 +201,6 @@
       vm.logisticsCompanyList();
     },
     methods: {
-      getBaseInfo() {
-        // this.infoLoading = true;
-        // setTimeout(() => {
-        //   this.infoLoading = false;
-        // }, 2000);
-      },
       //获取商品数据
       getGoodsList: function() {
         var vm = this;
@@ -245,6 +229,7 @@
           showSendGoodsPopover = true;
         };
       },
+      //计算总金额
       getSummaries(param) {
         let { columns, data } = param;
         let sums = [];
@@ -269,9 +254,6 @@
           }, 0);
         });
         return sums;
-      },
-      addRemark() {
-        this.showRemarkDialog = true;
       }, 
       goBack() {
         this.$router.push('/index/order/orderAccount'); 

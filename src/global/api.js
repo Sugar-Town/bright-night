@@ -17,21 +17,24 @@ export const api = {
             'cwData_out2':url.staticPath+'dataJson/cwData_out2.json', 
             'goods':url.staticPath+'dataJson/goods.json',
             'kfData':url.staticPath+'dataJson/kfData.json', 
-            'logisticsCompany':url.staticPath+'dataJson/logisticsCompany.json', 
-            'orderColleague':url.staticPath+'dataJson/orderColleague.json',   
-            'orderInfo':url.staticPath+'dataJson/orderInfo.json',   
             'power':url.staticPath+'dataJson/power.json',   
             'productInfo':url.staticPath+'dataJson/productInfo.json',   
-            'productList':url.staticPath+'dataJson/productList.json',   
             'sale':url.staticPath+'dataJson/sale.json',   
             'userInfo':url.staticPath+'dataJson/userInfo.json',
             'userInfo2':url.staticPath+'dataJson/userInfo2.json',   
             'weather_mini':url.staticPath+'dataJson/weather_mini.json',
-            'echartsJson':url.staticPath+'testDataJson/echartsJson.json',  
 
+            //商品列表请求的json文件
+            'productList':url.staticPath+'testDataJson/productList.json', 
+              
+            //订单管理请求的json文件
+            'logisticsCompany':url.staticPath+'testDataJson/logisticsCompany.json', 
+            'orderColleague':url.staticPath+'testDataJson/orderColleague.json',   
+            'orderInfo':url.staticPath+'testDataJson/orderInfo.json',   
             'close':url.staticPath+'testDataJson/close.json',
             'sended':url.staticPath+'testDataJson/sended.json',
             'success':url.staticPath+'testDataJson/success.json', 
             'waitedPay':url.staticPath+'testDataJson/waitedPay.json',
-            'waitedSend':url.staticPath+'testDataJson/waitedSend.json'
+            'waitedSend':url.staticPath+'testDataJson/waitedSend.json',
+            'echartsJson':url.staticPath+'testDataJson/echartsJson.json',  
     }

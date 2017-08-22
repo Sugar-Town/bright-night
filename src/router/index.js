@@ -1,18 +1,16 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import Router from 'vue-router'
-import VueResource from 'vue-resource'
-import VueWaves from '../directive/waves'
 
-Vue.use(Vuex)
 Vue.use(Router)
-Vue.use(VueResource)
-Vue.use(VueWaves)
 
+//readme首页
 import Readme from '@/view/index/readme'
+
+//基本共享组件
 import Login from '@/view/index/login'
 import Index from '@/view/index/index'
 
+//员工管理组件
 import User from '@/view/user/a-user'
 import UserInfo from '@/view/user/userInfo'
 import NewUser from '@/view/user/new-user'
@@ -20,12 +18,14 @@ import Power from '@/view/user/power'
 import Sale from '@/view/user/sale'
 import Echarts from '@/view/user/echarts'
 
+//库房管理组件
 import House from '@/view/warehouse/a-house'
 import Instock from '@/view/warehouse/instock'
 import Outstock from '@/view/warehouse/outstock'
 import Allocation from '@/view/warehouse/allocation'
 import Remaining from '@/view/warehouse/remaining'
 
+//产品管理组件
 import Product from '@/view/product/a-product'
 import Chengben from '@/view/product/product-chengben'
 import Kucun from '@/view/product/product-kucun'
@@ -33,17 +33,20 @@ import Shuxing from '@/view/product/product-shuxing'
 import KucunChakan from '@/view/product/kucun-chakan'
 import ProductList from '@/view/product/productList'
 
+//财务管理组件
 import Finance from '@/view/finance/a-finance'
 import Jilu from '@/view/finance/jilu'
 import TimeProfits from '@/view/finance/timeProfits'
 import F_Echarts from '@/view/finance/echart'
 
+//客户管理组件
 import Customer from '@/view/customer/a-customer'
 import CustomerVip from '@/view/customer/customerVip'
 import CustomerInfo from '@/view/customer/customerInfo'
 import CustomerOder from '@/view/customer/customerOder'
 import CustomerTranfer from '@/view/customer/customerTranfer'
 
+//订单管理组件
 import Order from '@/view/order/a-order'
 import OrderIndex from '@/view/order/index'
 import OrderAccount from '@/view/order/orderAccount'

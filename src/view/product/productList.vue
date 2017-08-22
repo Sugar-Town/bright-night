@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container calendar-list-container">
+  <div class="product-container calendar-list-container">
     <div class="filter-container">
       <el-row>
         <el-col :span="8">
@@ -99,6 +99,7 @@
       </el-row>
     
     </div>
+    <!--表格-->
     <div class="tableList">
       <el-table :data="tableList" v-loading="listLoading" element-loading-text="拼命加载中" :height="tableHeight" border stripe fit
                 highlight-current-row style="width: 100%">
@@ -110,16 +111,16 @@
         <el-table-column align="center" width="120px" label="商品编码" prop="id" sortable>
         </el-table-column>
         
-        <el-table-column align="center" min-width="180px" label="商品名称" sortable>
+        <el-table-column align="center" min-width="150px" label="商品名称" sortable>
           <template scope="scope">
             <span class="link-type" @click="handleUpdate(scope.row)">{{scope.row.title}}</span>
           </template>
         </el-table-column>
         
-        <el-table-column align="center" width="80px" label="商品规格" prop="sku">
+        <el-table-column align="center" width="100px" label="商品规格" prop="sku">
         </el-table-column>
         
-        <el-table-column align="center" width="60px" label="单位" prop="unit">
+        <el-table-column align="center" width="70px" label="单位" prop="unit">
         </el-table-column>
         
         <el-table-column align="center" width="100px" label="市场价" prop="marketPrice" sortable>
@@ -134,46 +135,23 @@
         <el-table-column align="center" width="180px" label="新增时间" prop="createTime" sortable>
         </el-table-column>
         
-        <el-table-column align="center" width="180px" label="修改时间" prop="modifyTime" sortable>
-        </el-table-column>
-        
         <el-table-column align="center" label="状态" width="100">
           <template scope="scope">
             <el-tag :type="scope.row.status | statusFilter">{{scope.row.status ? '已上架' : '待上架'}}</el-tag>
           </template>
         </el-table-column>
-        
-        <el-table-column align="center" label="" width="40" fixed="right">
+
+        <el-table-column align="center" label="操作" width="150">
           <template scope="scope">
-            <el-popover
-              ref="optionMenu"
-              placement="bottom-end"
-              width="40px"
-              popper-class="good-manage-list menu-popper-class"
-              trigger="hover"
-              :visible-arrow="false">
-              <el-row style="margin-bottom: 3px;">
-                <el-button v-if="scope.row.status === 0" size="small" type="info"
-                           @click="handleModifyStatus(scope.row, 1)">上架
-                </el-button>
-              </el-row>
-              <el-row style="margin-bottom: 3px;">
-                <el-button v-if="scope.row.status === 1" size="small" type="warning"
-                           @click="handleModifyStatus(scope.row, 0)">下架
-                </el-button>
-              </el-row>
-              <el-row style="margin-bottom: 3px;">
-                <el-button size="small" type="info">编辑
-                </el-button>
-              </el-row>
-              <el-row style="margin-bottom: 3px;">
-                <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除
-                </el-button>
-              </el-row>
-            </el-popover>
-            <span v-popover:optionMenu>...</span>
+            <el-row style="margin-bottom: 3px;">
+              <el-button size="small" type="info" class="edit">编辑
+              </el-button>
+              <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)" class="delete">删除
+              </el-button>
+            </el-row>
           </template>
         </el-table-column>
+        
       </el-table>
     </div>
     <div v-show="!listLoading" class="pagination-container">
@@ -327,14 +305,23 @@
 </script>
 
 <style>
- .app-container .good-manage-list.menu-popper-class {
+  .product-container {
+    padding-left: 10px;
+  }
+  .product-container .good-manage-list.menu-popper-class {
     min-width: 60px !important;
   }
-.app-container .filter-container {
-  margin-bottom: 15px;
-}
-.app-container .pagination-container {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
+  .product-container .filter-container {
+    margin-bottom: 15px;
+  }
+  .product-container .pagination-container {
+    margin-top: 1px;
+    margin-bottom: 15px;
+  }
+  .product-container .edit {
+    float: left;
+  }
+  .product-container .delete {
+    float: right;
+  }
 </style>

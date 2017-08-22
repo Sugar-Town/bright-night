@@ -9,7 +9,7 @@
                   2.&nbsp;&nbsp;全部动态操作的按钮点击元素（例如增删改查、分页切换等），都已经在控制台打印出相关参数，实际开发时把这些参数按需提交给后端接口即可
               </li>
               <li>
-                  3.&nbsp;&nbsp;如果此开源项目对你有所帮助的话，请到<a href="https://github.com/fighting-girls/bright-night">源码地址</a>给个star，更多功能即将开发……
+                  3.&nbsp;&nbsp;如果此开源项目对你有所帮助的话，请到<a href="https://github.com/Sugar-Town/bright-night">源码地址</a>给个star，更多功能即将开发……
               </li>
             </ul>
         </code>
