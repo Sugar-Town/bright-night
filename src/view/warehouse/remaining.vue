@@ -74,9 +74,9 @@
 <style>
 .remainContainer{
   float: left;
-width: 1200px;
-position: relative;
-overflow: hidden;
+  width: 1200px;
+  position: relative;
+  overflow: hidden;
 }
 .remainbox{
   padding: 20px 24px;
@@ -84,6 +84,6 @@ overflow: hidden;
   margin: 0 auto;
 }
 .remainbox .el-table th>.cell {
-    text-align: center;
+  text-align: center;
 }
 </style>
