@@ -1,5 +1,6 @@
+<!--所有订单组件-->
 <template>
-  <div class="app-container">
+  <div class="account-container">
     <!-- 搜索条件 -->
     <div class="filter-container">
       <el-input style="width: 200px;" class="filter-item" placeholder="请输入订单号" v-model="listQuery.orderId">
@@ -108,7 +109,7 @@
             </template>
           </el-table-column>
 
-          <el-table-column align="center" prop="created_at" label="预定日期" width="170">
+          <el-table-column align="center" prop="created_at" label="预定日期" width="190">
             <template scope="scope">
               <span>{{scope.row.orderDay}}</span>
             </template>
@@ -150,7 +151,8 @@
 </template>
 
 <script>
-  import {api} from '@/global/api'
+  import { api } from '@/global/api'
+  import { global } from '@/global/global'
   export default {
     data() {
       return {
@@ -193,87 +195,75 @@
       vm.getList();
     },
     methods: {
+      initData (data) {
+        var vm = this;
+        vm.list = data;
+        vm.listQuery.currPage = data.currPage;
+        vm.listQuery.pageSize = data.pageSize;
+        vm.total = data.total;
+      },
       //获取列表数据, 查看全部订单
       getList () {
         var vm = this;
         //在控制台输出查询条件
         console.log("所有订单请求订单信息json——————",JSON.stringify(vm.listQuery));
-        this.$http.get(api.orderInfo,{params: vm.listQuery}).then(function(response) {
+        global.get( api.orderInfo, { params: vm.listQuery }, function(response) {
             var data = response.body;
-            vm.list = data.data.data;
-            vm.listQuery.currPage = data.data.currPage;
-            vm.listQuery.pageSize = data.data.pageSize;
-            vm.total = data.data.total;
-            vm.listLoading = false;   
+            vm.initData (data.data.data)  
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //handleWaitedPay handleWaitedSend handleSuccess handleClose
       //查看等待买家付款订单
       handleWaitedPay () {
         var vm = this;
-        this.$http.get(api.waitedPay,{params: vm.listQuery}).then(function(response) {
+        global.get( api.waitedPay, { params: vm.listQuery }, function(response) {
             var data = response.body;
-            vm.list = data.data.data;
-            vm.listQuery.currPage = data.data.currPage;
-            vm.listQuery.pageSize = data.data.pageSize;
-            vm.total = data.data.total; 
+            vm.initData (data.data.data) 
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //查看等待发货订单
       handleWaitedSend () {
         var vm = this;
-        this.$http.get(api.waitedSend,{params: vm.listQuery}).then(function(response) {
+        global.get( api.waitedSend, { params: vm.listQuery }, function(response) {
             var data = response.body;
-            vm.list = data.data.data;
-            vm.listQuery.currPage = data.data.currPage;
-            vm.listQuery.pageSize = data.data.pageSize;
-            vm.total = data.data.total; 
+            vm.initData (data.data.data)
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //查看已发货发货订单
       handleSended () {
         var vm = this;
-        this.$http.get(api.sended,{params: vm.listQuery}).then(function(response) {
+        global.get( api.sended, { params: vm.listQuery }, function(response) {
             var data = response.body;
-            vm.list = data.data.data;
-            vm.listQuery.currPage = data.data.currPage;
-            vm.listQuery.pageSize = data.data.pageSize;
-            vm.total = data.data.total; 
+            vm.initData (data.data.data) 
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //查看已完成订单
       handleSuccess () {
         var vm = this;
-        this.$http.get(api.success,{params: vm.listQuery}).then(function(response) {
+        global.get( api.success, { params: vm.listQuery }, function(response) {
             var data = response.body;
-            vm.list = data.data.data;
-            vm.listQuery.currPage = data.data.currPage;
-            vm.listQuery.pageSize = data.data.pageSize;
-            vm.total = data.data.total; 
+            vm.initData (data.data.data) 
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //查看已关闭订单
       handleClose () {
         var vm = this;
-        this.$http.get(api.close,{params: vm.listQuery}).then(function(response) {
+        global.get( api.close, { params: vm.listQuery }, function(response) {
             var data = response.body;
-            vm.list = data.data.data;
-            vm.listQuery.currPage = data.data.currPage;
-            vm.listQuery.pageSize = data.data.pageSize;
-            vm.total = data.data.total; 
+            vm.initData (data.data.data) 
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //单个发货和批量发货跳转同一个页面
       handleEdit(index,row){
@@ -312,8 +302,7 @@
         }
         console.log('批量发货选择的row：',vm.multipleSelection);
         //跳页面进行发货
-        //this.$router.push('/example/form');
-        this.$router.push('/index/order/editOrder' ); //带参跳转
+        this.$router.push('/index/order/editOrder');
       },
       //查看全部订单
       handleFilter() {
@@ -332,16 +321,13 @@
       //高级搜索
       handleAdvanceSearch () {
         var vm = this;
-        this.$http.get(api.success,{params: vm.listQuery}).then(function(response) {
+        global.get( api.success, { params: vm.listQuery }, function(response) {
             var data = response.body;
-            vm.list = data.data.data;
-            vm.listQuery.currPage = data.data.currPage;
-            vm.listQuery.pageSize = data.data.pageSize;
-            vm.total = data.data.total; 
-            this.showAdvancedSearchPopover = false;
+            vm.initData (data.data.data) 
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
+        this.showAdvancedSearchPopover = false;
       },
       //操作分页
       handleSizeChange(val) {
@@ -375,30 +361,30 @@
   };
 </script>
 <style>
-  .app-container {
+  .account-container {
     width: 1210px;
     padding-left: 20px;
     padding-top: 25px;
   } 
   @media only screen and (max-width: 1400px) {
-    .app-container {
-      width: 1120px;
+    .account-container {
+      width: 1160px;
       padding-top: 20px;
     } 
   }
-  .app-container .el-table {
+  .account-container .el-table {
     margin-top: 20px;
   } 
-  .app-container .edit {
+  .account-container .edit {
     float: left;
   }
-  .app-container .delete {
+  .account-container .delete {
     float: right;
   }
-  .app-container .pagination-container {
+  .account-container .pagination-container {
     margin-top: 15px;
   }
-  .app-container .top-distance {
+  .account-container .top-distance {
     margin-top: 15px;
   }
 </style>

@@ -1,5 +1,6 @@
+<!--所属员工组件-->
 <template>
-  <div class="app-container">
+  <div class="colleague-container">
     <!-- 搜索条件 -->
     <div class="filter-container">
       <el-input style="width: 200px;" class="filter-item" placeholder="请输入员工编号" v-model="listQuery.colleagueId">
@@ -59,7 +60,7 @@
             </template>
         </el-table-column>
 
-        <el-table-column align="center"  label="操作" width="140">
+        <el-table-column align="center"  label="操作" width="150">
             <template scope="scope">
                <el-button class="edit" size="small" v-waves @click="handleEdit(scope.$index, scope.row)">查看</el-button>
                <el-button class="delete" size="small" v-waves type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
@@ -78,7 +79,8 @@
 
 <script>
 	//员工编号 员工姓名 订单编号 成交日期 金额 订单状态 审核人 	
-  import {api} from '@/global/api'
+  import { api } from '@/global/api'
+  import { global } from '@/global/global'
   export default {
     data() {
       return {
@@ -120,7 +122,7 @@
       	var vm = this;
         //在控制台输出查询条件
         console.log(JSON.stringify("=============",vm.orderIdtemp));
-        this.$http.get(api.orderColleague ,{params: vm.orderIdtemp}).then(function(response) {
+        global.get( api.orderColleague, {params: vm.orderIdtemp}, function(response) {
             var data = response.body;
             vm.list = data.data.data;
             vm.listQuery.currPage = data.data.currPage;
@@ -129,7 +131,7 @@
             vm.listLoading = false;   
           }, function(response) {
             alert("请求失败了");
-      	})
+      	}, false)
    	  },
       //查看
       handleEdit (index,row){
@@ -200,30 +202,30 @@
   };
 </script>
 <style>
-  .app-container {
+  .colleague-container {
     width: 1210px;
     padding-left: 20px;
     padding-top: 15px;
   } 
   @media only screen and (max-width: 1400px) {
-    .app-container {
-      width: 1120px;
+    .colleague-container {
+      width: 1160px;
       padding-top: 20px;
     } 
   }
-  .app-container .el-table {
+  .colleague-container .el-table {
     margin-top: 20px;
   } 
-  .app-container .edit {
+  .colleague-container .edit {
     float: left;
   }
-  .app-container .delete {
+  .colleague-container .delete {
     float: right;
   }
-  .app-container .pagination-container {
+  .colleague-container .pagination-container {
     margin-top: 15px;
   }
-  .app-container .top-distance {
+  .colleague-container .top-distance {
     margin-top: 15px;
   }
 </style>

@@ -47,7 +47,6 @@ export default {
   }
 
   .post>.siderBar {
-    /*float: left;*/
     position: absolute;
     width: 12%;
     z-index: 999
@@ -60,7 +59,6 @@ export default {
     background: #eef1f6; 
     width:100%; 
     height: 46px;
-    margin-bottom: 5px;
   }
   .post {
     width: 100%;

@@ -1,10 +1,11 @@
+<!--商品列表组件-->
 <template>
   <div class="product-container calendar-list-container">
     <div class="filter-container">
       <el-row>
         <el-col :span="8">
           <el-button-group>
-            <el-button size="small" type="success" icon="plus">新增</el-button>
+            <el-button size="small" type="success" icon="plus" @click="handleCreate">新增</el-button>
             <el-button size="small" type="info" icon="arrow-up">上架</el-button>
             <el-button size="small" type="warning" icon="arrow-down">下架</el-button>
             <el-button size="small" type="danger" icon="delete">删除</el-button>
@@ -19,7 +20,7 @@
                        expand-trigger="hover"
                        :options="data2"
                        :show-all-levels="false"
-                       size="small">
+                       size="small" placeholder="请选择商品分类">
           </el-cascader>
           <el-select clearable style="width: 100px" class="filter-item" v-model="productListQuery.status" placeholder="状态"
                      size="small">
@@ -110,11 +111,8 @@
         
         <el-table-column align="center" width="120px" label="商品编码" prop="id" sortable>
         </el-table-column>
-        
-        <el-table-column align="center" min-width="150px" label="商品名称" sortable>
-          <template scope="scope">
-            <span class="link-type" @click="handleUpdate(scope.row)">{{scope.row.title}}</span>
-          </template>
+
+        <el-table-column align="center" width="150px" label="商品名称" prop="title">
         </el-table-column>
         
         <el-table-column align="center" width="100px" label="商品规格" prop="sku">
@@ -165,7 +163,7 @@
 </template>
 
 <script>
-
+  import { global } from '@/global/global'
   const tags = [{id: 1, name: '新品上架'}, {id: 2, name: '热卖促销'}, {id: 3, name: '新客优惠'}];
   import {api} from '@/global/api'
   export default {
@@ -240,8 +238,8 @@
       getList() {
         var vm = this;
         //在控制台输出查询条件
-        console.log("+++++", JSON.stringify(vm.productListQuery));
-        this.$http.get(api.productList,{params: vm.productListQuery}).then(function(response) {
+        console.log("=====", JSON.stringify(vm.productListQuery));
+        global.get( api.productList, { params: vm.productListQuery }, function(response) {
             var data = response.body;
             vm.tableList = data.data.productList;
             vm.productListQuery.currPage = data.data.currPage;
@@ -250,20 +248,23 @@
             vm.listLoading = false;   
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //搜索
       handleFilter() {
         this.getList();
       },
+      //分页
       handleSizeChange(val) {
         this.productListQuery.pageSize = val;
         this.getList();
       },
+      //分页
       handleCurrentChange(val) {
         this.productListQuery.currPage = val;
         this.getList();
       },
+      //商品标签全选
       handleCheckAllTagChange(event) {
         let tags = [];
         for (let tag of this.tags) {
@@ -272,11 +273,13 @@
         this.checkedTags = event.target.checked ? tags : [];
         this.isIndeterminateTag = false;
       },
+      //商品标签复选框
       handleCheckedTagsChange(value) {
         let checkedCount = value.length;
         this.checkAllTag = checkedCount === this.tags.length;
         this.isIndeterminateTag = checkedCount > 0 && checkedCount < this.tags.length;
       },
+      //商品状态全选
       handleCheckAllStatusChange(event) {
         let statuss = [];
         for (let tag of this.goodStatus) {
@@ -285,6 +288,7 @@
         this.checkedStatuss = event.target.checked ? statuss : [];
         this.isIndeterminateStatus = false;
       },
+      //商品状态复选框
       handleCheckedStatusChange(value) {
         let checkedCount = value.length;
         this.checkAllStatus = checkedCount === this.goodStatus.length;
@@ -292,6 +296,8 @@
       },
       //新增
       handleCreate() {
+        var vm = this;
+        this.$router.push('/index/product/addProduct');
       },
       //单个删除
       handleDelete(index,row){

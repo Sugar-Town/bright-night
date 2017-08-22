@@ -1,3 +1,4 @@
+<!--编辑发货组件-->
 <template>
  <div class="createPost-container" v-cloak>
     <div class="createPost-main-container" v-loading="infoLoading">
@@ -155,7 +156,8 @@
 </template>
 
 <script>
-  import {api} from '@/global/api'
+  import { api } from '@/global/api'
+  import { global } from '@/global/global'
   export default {
     name: 'OrderDetailPane',
     data() {
@@ -204,20 +206,20 @@
       //获取商品数据
       getGoodsList: function() {
         var vm = this;
-        this.$http.get(api.goods).then(function(response) {
+        global.get( api.goods, null, function(response) {
             vm.goodList = response.body.data.goodList;
           }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //获取快递公司列表
       logisticsCompanyList: function() {
         var vm = this;
-        this.$http.get(api.logisticsCompany).then(function(response) {
+        global.get( api.logisticsCompany, null, function(response) {
           this.selectLogisticsCompany = response.body.data.logisticsCompany;           
         }, function(response) {
             alert("请求失败了");
-        })
+        }, false)
       },
       //获取发货信息
       getSendInfo() {

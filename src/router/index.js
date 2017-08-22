@@ -32,6 +32,7 @@ import Kucun from '@/view/product/product-kucun'
 import Shuxing from '@/view/product/product-shuxing'
 import KucunChakan from '@/view/product/kucun-chakan'
 import ProductList from '@/view/product/productList'
+import AddProduct from '@/view/product/addProduct'
 
 //财务管理组件
 import Finance from '@/view/finance/a-finance'
@@ -104,7 +105,8 @@ export default new Router({
             { path: 'kucun', component: Kucun, name: '产品库存'  },
             { path: 'shuxing', component: Shuxing, name: '产品属性管理'  },
             { path: 'kucun-chakan', component: KucunChakan, name: '库存查看' },
-            { path: 'productList', component: ProductList, name: '产品列表' }
+            { path: 'productList', component: ProductList, name: '产品列表' },
+            { path: 'addProduct', component: AddProduct, name: '添加商品' }
           ]
         },
         { 
