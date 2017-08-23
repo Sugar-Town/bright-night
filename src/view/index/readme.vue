@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="readme-container">
         <code>
             <h2 class="title">系统说明：</h2>
             <ul class="detail">
@@ -29,7 +29,7 @@ export default {
   li {
     list-style: none;
   }
-  .container {
+  .readme-container {
     margin-top: 80px;
     margin-left: 50px;
     width: 90%;
@@ -37,10 +37,10 @@ export default {
     background: #eef1f6;
     padding: 20px;
   }
-  .title {
+  .readme-container .title {
     padding-bottom: 20px;
   }
-  .detail>li {
+  .readme-container .detail>li {
     font-family: 微软雅黑;
     font-size: 15px;
     line-height: 3;

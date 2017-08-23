@@ -56,7 +56,7 @@ export default {
     float:right;
   }
   .post .navBar {
-    background: #eef1f6; 
+    /*background: #eef1f6; */
     width:100%; 
     height: 46px;
   }

@@ -216,7 +216,7 @@
       logisticsCompanyList: function() {
         var vm = this;
         global.get( api.logisticsCompany, null, function(response) {
-          this.selectLogisticsCompany = response.body.data.logisticsCompany;           
+          vm.selectLogisticsCompany = response.body.data.logisticsCompany;           
         }, function(response) {
             alert("请求失败了");
         }, false)
@@ -226,7 +226,7 @@
         var vm = this;
         console.log(vm.sendGoodsInfo);
         if(vm.sendGoodsInfo.sendTime !== '' && vm.sendGoodsInfo.logisticsCompany !== '' && vm.sendGoodsInfo.logisticsNum !== ''){
-          this.$router.push( { path: '/index/order/showSendInfo', query: { sendGoodsInfo: vm.sendGoodsInfo } } );
+          vm.$router.push( { path: '/index/order/showSendInfo', query: { sendGoodsInfo: vm.sendGoodsInfo } } );
         }else{
           showSendGoodsPopover = true;
         };

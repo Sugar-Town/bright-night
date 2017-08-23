@@ -27,7 +27,7 @@
 			              <el-cascader
 			                v-model="postForm.categoryId"
 			                expand-trigger="hover"
-			                :options="data2"
+			                :options="lightList"
 			                :show-all-levels="false"
 			                size="small">
 			              </el-cascader>
@@ -135,54 +135,74 @@
 		          skus: []
 		        },
 		        rules: {
-		          name: [
-		            {required: true, message: '请输入商品名称', trigger: 'blur'}
+		            name: [
+		            	{required: true, message: '请输入商品名称', trigger: 'blur'}
 		          ],
-		          categoryId: [
-		            {required: true, message: '请选择商品分类', trigger: 'blur'}
+		            categoryId: [
+		            	{required: true, message: '请选择商品分类', trigger: 'blur'}
 		          ],
-		          unitId: [
-		            {required: true, message: '请选择商品单位', trigger: 'blur'}
+		            unitId: [
+		            	{required: true, message: '请选择商品单位', trigger: 'blur'}
 		          ],
-		          skus: [
-		            {required: true, message: '请设置商品单位', trigger: 'blur'}
+		            skus: [
+		            	{required: true, message: '请设置商品单位', trigger: 'blur'}
 		          ]
 		        },
 		        loading: false,
-		        data2: [{
-		          value: 1,
-		          label: '一级 1',
-		          children: [{
-		            value: 4,
-		            label: '二级 1-1',
-		            children: [{
-		              value: 9,
-		              label: '三级 1-1-1'
-		            }, {
-		              value: 10,
-		              label: '三级 1-1-2'
-		            }]
-		          }]
-		        }, {
-		          value: 2,
-		          label: '一级 2',
-		          children: [{
-		            value: 5,
-		            label: '二级 2-1'
-		          }, {
-		            value: 6,
-		            label: '二级 2-2'
-		          }]
-		        }, {
-		          value: 3,
-		          label: '一级 3',
-		          children: [{
-		            value: 7,
-		            label: '二级 3-1'
-		          }, {
-		            value: 8,
-		            label: '二级 3-2'
-		          }]
+		        lightList: [
+		        {
+		            value: 1,
+		            label: '路灯',
+		            children: [
+			            {
+				            value: 4,
+				            label: '高杆灯',
+				            children: [
+					            { value: 10, label: '白炽灯' }, 
+					            { value: 11, label: '暖光灯' }
+				            ]
+			            },
+				        {
+				            value: 5,
+				            label: '中杆灯',
+				            children: [
+					            { value: 12, label: '格栅灯' }, 
+					            { value: 13, label: '天花灯'},
+					            { value: 14, label: '日光灯'}
+				            ]
+				        },
+		            ]
+		        }, 
+		        {
+		            value: 2,
+		            label: '步道与庭院灯',
+		            children: [
+		            	{   value: 6, 
+		            		label: '景观灯',
+		            		children: [
+					            { value: 15, label: '格栅灯' }, 
+					            { value: 16, label: '天花灯'},
+					            { value: 17, label: '筒灯'}
+				            ]
+		            	}, 
+		            	{   value: 7, 
+		            		label: '面板灯',
+		            		children: [
+					            { value: 18, label: '洗墙灯' }, 
+					            { value: 19, label: '天花灯'},
+					            { value: 20, label: '水晶灯'},
+					            { value: 21, label: '台灯'}
+				            ]
+		            	}
+		            ]
+		        }, 
+		        {
+		            value: 3,
+		            label: '埋地灯',
+		            children: [
+			            { value: 8, label: '指示灯' }, 
+			            { value: 9, label: '工程灯'}
+		            ]
 		        }],
 		        unitList: [{label: '件', value: 1}, {label: '袋', value: 0}],
 		        tags: [{id: 1, name: '新品上架'}, {id: 2, name: '热卖促销'}, {id: 3, name: '新客优惠'}],
